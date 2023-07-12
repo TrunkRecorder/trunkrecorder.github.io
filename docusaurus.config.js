@@ -11,7 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://TrunkRecorder.github.io/site/',
+  url: 'https://TrunkRecorder.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -19,6 +19,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'TrunkRecorder', // Usually your GitHub org/user name.
+  trailingSlash: false,
   projectName: 'site', // Usually your repo name.
 
   onBrokenLinks: 'throw',
