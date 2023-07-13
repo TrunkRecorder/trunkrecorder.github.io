@@ -41,7 +41,7 @@ RTL-SDR dongles; HackRF; Ettus USRP B200, B210, B205; BladeRF; Airspy
 
 
 ### Setup
-* [Configuring a system](./Install/CONFIGURE.md)
+* [Configuring a system](./CONFIGURE.md)
 
 ### Playback & Sharing
 By default, Trunk Recorder just dumps a lot of recorded files into a directory. Here are a couple of options to make it easier to browse through recordings and share them on the Internet.
