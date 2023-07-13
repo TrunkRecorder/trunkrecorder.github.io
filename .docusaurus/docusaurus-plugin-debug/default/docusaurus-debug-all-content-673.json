@@ -20,10 +20,202 @@
           "contentPathLocalized": "/Users/luke/Projects/TrunkRecorder/site/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
+              "unversionedId": "CONFIGURE",
+              "id": "CONFIGURE",
+              "title": "Configuring Trunk Recorder",
+              "description": "It takes a little bit of work to correctly configure Trunk Recorder, but once you get everything working you will not have to touch it again.",
+              "source": "@site/docs/CONFIGURE.md",
+              "sourceDirName": ".",
+              "slug": "/CONFIGURE",
+              "permalink": "/docs/CONFIGURE",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/CONFIGURE.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_label": "Configure",
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "FAQ",
+                "permalink": "/docs/FAQ"
+              }
+            },
+            {
+              "unversionedId": "DEBUG",
+              "id": "DEBUG",
+              "title": "How to Debug a Seg Fault",
+              "description": "When Trunk Recorder crashes and give a Segmentation Fault error (a SegFault), there are some steps you can take to figure out what is causing it. Pulling this information makes it a lot easier to figure what is going wrong.",
+              "source": "@site/docs/DEBUG.md",
+              "sourceDirName": ".",
+              "slug": "/DEBUG",
+              "permalink": "/docs/DEBUG",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/DEBUG.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_label": "Debugging",
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "FAQ",
+                "permalink": "/docs/FAQ"
+              },
+              "next": {
+                "title": "Linux Install",
+                "permalink": "/docs/Install/INSTALL-LINUX"
+              }
+            },
+            {
+              "unversionedId": "FAQ",
+              "id": "FAQ",
+              "title": "Ugh! Why is it doing that thing",
+              "description": "Common Error Messages and What to Do",
+              "source": "@site/docs/FAQ.md",
+              "sourceDirName": ".",
+              "slug": "/FAQ",
+              "permalink": "/docs/FAQ",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/FAQ.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_label": "FAQ",
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Configure",
+                "permalink": "/docs/CONFIGURE"
+              },
+              "next": {
+                "title": "Debugging",
+                "permalink": "/docs/DEBUG"
+              }
+            },
+            {
+              "unversionedId": "Install/INSTALL-DOCKER",
+              "id": "Install/INSTALL-DOCKER",
+              "title": "Docker",
+              "description": "If you are not going to be modifying the source code, a Docker based install is the easiest way to get started. Images are published frequently to  Docker Hub. The images have GNURadio 3.8 and all other required dependencies built into it, so it should be ready to go and be a much faster solution than compiling. Images have been built for amd64 (amd64 is used by all modern Intel and AMD CPUs) and most popular flavors of ARM.",
+              "source": "@site/docs/Install/INSTALL-DOCKER.md",
+              "sourceDirName": "Install",
+              "slug": "/Install/INSTALL-DOCKER",
+              "permalink": "/docs/Install/INSTALL-DOCKER",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-DOCKER.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_label": "Docker Install",
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Linux Install",
+                "permalink": "/docs/Install/INSTALL-LINUX"
+              },
+              "next": {
+                "title": "Raspberry Pi Install",
+                "permalink": "/docs/Install/INSTALL-PI"
+              }
+            },
+            {
+              "unversionedId": "Install/INSTALL-LINUX",
+              "id": "Install/INSTALL-LINUX",
+              "title": "Linux Installs",
+              "description": "This page covers installing Trunk Recorder on a Linux box. I test everything on Ubuntu, but other flavors of Linux are supported. Instructions are also included for Arch Linux.",
+              "source": "@site/docs/Install/INSTALL-LINUX.md",
+              "sourceDirName": "Install",
+              "slug": "/Install/INSTALL-LINUX",
+              "permalink": "/docs/Install/INSTALL-LINUX",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-LINUX.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_label": "Linux Install",
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Debugging",
+                "permalink": "/docs/DEBUG"
+              },
+              "next": {
+                "title": "Docker Install",
+                "permalink": "/docs/Install/INSTALL-DOCKER"
+              }
+            },
+            {
+              "unversionedId": "Install/INSTALL-MAC",
+              "id": "Install/INSTALL-MAC",
+              "title": "MacOS",
+              "description": "There are two main \"package managers\" used on MacOS: Homebrew and MacPorts. Trunk-recorder can be installed with dependencies from one or the other",
+              "source": "@site/docs/Install/INSTALL-MAC.md",
+              "sourceDirName": "Install",
+              "slug": "/Install/INSTALL-MAC",
+              "permalink": "/docs/Install/INSTALL-MAC",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-MAC.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_label": "Mac Install",
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Raspberry Pi Install",
+                "permalink": "/docs/Install/INSTALL-PI"
+              },
+              "next": {
+                "title": "intro",
+                "permalink": "/docs/intro"
+              }
+            },
+            {
+              "unversionedId": "Install/INSTALL-PI",
+              "id": "Install/INSTALL-PI",
+              "title": "Raspberry Pi / Debian",
+              "description": "Smaller radio systems can be covered using a Raspberry Pi. If you are interested in doing this, you should really get a Pi 4. It maybe possible to get things running on an older Pi, but you often get unexpect behavior and errors. A Pi 4 can handle 3-4 simulatanious recordings. Make sure you have a good power supply. Also pay attention to heat. If the Pi gets too hot, it will slow down. A good case or fan can help keep it going full tilt. You can also just run debian on a NUC or Miniform PC. These commands will work with a vaneilla debian install as well.",
+              "source": "@site/docs/Install/INSTALL-PI.md",
+              "sourceDirName": "Install",
+              "slug": "/Install/INSTALL-PI",
+              "permalink": "/docs/Install/INSTALL-PI",
+              "draft": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-PI.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_label": "Raspberry Pi Install",
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Docker Install",
+                "permalink": "/docs/Install/INSTALL-DOCKER"
+              },
+              "next": {
+                "title": "Mac Install",
+                "permalink": "/docs/Install/INSTALL-MAC"
+              }
+            },
+            {
               "unversionedId": "intro",
               "id": "intro",
-              "title": "Tutorial Intro",
-              "description": "Let's discover Docusaurus in less than 5 minutes.",
+              "title": "intro",
+              "description": "Sponsors",
               "source": "@site/docs/intro.md",
               "sourceDirName": ".",
               "slug": "/intro",
@@ -32,226 +224,107 @@
               "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Mac Install",
+                "permalink": "/docs/Install/INSTALL-MAC"
+              },
               "next": {
-                "title": "Tutorial - Basics",
-                "permalink": "/docs/category/tutorial---basics"
+                "title": "CALL-HANDLING",
+                "permalink": "/docs/notes/CALL-HANDLING"
               }
             },
             {
-              "unversionedId": "tutorial-basics/congratulations",
-              "id": "tutorial-basics/congratulations",
-              "title": "Congratulations!",
-              "description": "You have just learned the basics of Docusaurus and made some changes to the initial template.",
-              "source": "@site/docs/tutorial-basics/congratulations.md",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/congratulations",
-              "permalink": "/docs/tutorial-basics/congratulations",
+              "unversionedId": "notes/CALL-HANDLING",
+              "id": "notes/CALL-HANDLING",
+              "title": "CALL-HANDLING",
+              "description": "Use Mermaid Live to edit the charts.",
+              "source": "@site/docs/notes/CALL-HANDLING.md",
+              "sourceDirName": "notes",
+              "slug": "/notes/CALL-HANDLING",
+              "permalink": "/docs/notes/CALL-HANDLING",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/congratulations.md",
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/CALL-HANDLING.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 6,
-              "frontMatter": {
-                "sidebar_position": 6
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Deploy your site",
-                "permalink": "/docs/tutorial-basics/deploy-your-site"
+                "title": "intro",
+                "permalink": "/docs/intro"
               },
               "next": {
-                "title": "Tutorial - Extras",
-                "permalink": "/docs/category/tutorial---extras"
+                "title": "Plugin System",
+                "permalink": "/docs/notes/PLUGIN-SYSTEM"
               }
             },
             {
-              "unversionedId": "tutorial-basics/create-a-blog-post",
-              "id": "tutorial-basics/create-a-blog-post",
-              "title": "Create a Blog Post",
-              "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
-              "source": "@site/docs/tutorial-basics/create-a-blog-post.md",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/create-a-blog-post",
-              "permalink": "/docs/tutorial-basics/create-a-blog-post",
+              "unversionedId": "notes/PLUGIN-SYSTEM",
+              "id": "notes/PLUGIN-SYSTEM",
+              "title": "Plugin System",
+              "description": "The plugin system is designed to allow third parties to integrate their own features without changing the core code of trunk-recorder, and allow for features to be updated independently of the trunk-recorder code base. The current methods supported by the plugin system is loosely based on the Status uploader.",
+              "source": "@site/docs/notes/PLUGIN-SYSTEM.md",
+              "sourceDirName": "notes",
+              "slug": "/notes/PLUGIN-SYSTEM",
+              "permalink": "/docs/notes/PLUGIN-SYSTEM",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/create-a-blog-post.md",
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/PLUGIN-SYSTEM.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 3,
-              "frontMatter": {
-                "sidebar_position": 3
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Create a Document",
-                "permalink": "/docs/tutorial-basics/create-a-document"
+                "title": "CALL-HANDLING",
+                "permalink": "/docs/notes/CALL-HANDLING"
               },
               "next": {
-                "title": "Markdown Features",
-                "permalink": "/docs/tutorial-basics/markdown-features"
+                "title": "Object Lifecycles and States in Trunk Recorder",
+                "permalink": "/docs/notes/STATES"
               }
             },
             {
-              "unversionedId": "tutorial-basics/create-a-document",
-              "id": "tutorial-basics/create-a-document",
-              "title": "Create a Document",
-              "description": "Documents are groups of pages connected through:",
-              "source": "@site/docs/tutorial-basics/create-a-document.md",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/create-a-document",
-              "permalink": "/docs/tutorial-basics/create-a-document",
+              "unversionedId": "notes/STATES",
+              "id": "notes/STATES",
+              "title": "Object Lifecycles and States in Trunk Recorder",
+              "description": "Calls, Recorders and the Wav file write associated with a recorder all go through a lifecycle and have different states associated with each stage of the lifecycle.",
+              "source": "@site/docs/notes/STATES.md",
+              "sourceDirName": "notes",
+              "slug": "/notes/STATES",
+              "permalink": "/docs/notes/STATES",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/create-a-document.md",
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/STATES.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 2,
-              "frontMatter": {
-                "sidebar_position": 2
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Create a Page",
-                "permalink": "/docs/tutorial-basics/create-a-page"
+                "title": "Plugin System",
+                "permalink": "/docs/notes/PLUGIN-SYSTEM"
               },
               "next": {
-                "title": "Create a Blog Post",
-                "permalink": "/docs/tutorial-basics/create-a-blog-post"
+                "title": "Status json messages",
+                "permalink": "/docs/notes/STATUS-JSON"
               }
             },
             {
-              "unversionedId": "tutorial-basics/create-a-page",
-              "id": "tutorial-basics/create-a-page",
-              "title": "Create a Page",
-              "description": "Add Markdown or React files to src/pages to create a standalone page:",
-              "source": "@site/docs/tutorial-basics/create-a-page.md",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/create-a-page",
-              "permalink": "/docs/tutorial-basics/create-a-page",
+              "unversionedId": "notes/STATUS-JSON",
+              "id": "notes/STATUS-JSON",
+              "title": "Status json messages",
+              "description": "The json message are sent over a websocket to the server specified by statusServer config entry.",
+              "source": "@site/docs/notes/STATUS-JSON.md",
+              "sourceDirName": "notes",
+              "slug": "/notes/STATUS-JSON",
+              "permalink": "/docs/notes/STATUS-JSON",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/create-a-page.md",
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/STATUS-JSON.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
+              "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Tutorial - Basics",
-                "permalink": "/docs/category/tutorial---basics"
-              },
-              "next": {
-                "title": "Create a Document",
-                "permalink": "/docs/tutorial-basics/create-a-document"
-              }
-            },
-            {
-              "unversionedId": "tutorial-basics/deploy-your-site",
-              "id": "tutorial-basics/deploy-your-site",
-              "title": "Deploy your site",
-              "description": "Docusaurus is a static-site-generator (also called Jamstack).",
-              "source": "@site/docs/tutorial-basics/deploy-your-site.md",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/deploy-your-site",
-              "permalink": "/docs/tutorial-basics/deploy-your-site",
-              "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/deploy-your-site.md",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 5,
-              "frontMatter": {
-                "sidebar_position": 5
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Markdown Features",
-                "permalink": "/docs/tutorial-basics/markdown-features"
-              },
-              "next": {
-                "title": "Congratulations!",
-                "permalink": "/docs/tutorial-basics/congratulations"
-              }
-            },
-            {
-              "unversionedId": "tutorial-basics/markdown-features",
-              "id": "tutorial-basics/markdown-features",
-              "title": "Markdown Features",
-              "description": "Docusaurus supports Markdown and a few additional features.",
-              "source": "@site/docs/tutorial-basics/markdown-features.mdx",
-              "sourceDirName": "tutorial-basics",
-              "slug": "/tutorial-basics/markdown-features",
-              "permalink": "/docs/tutorial-basics/markdown-features",
-              "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/markdown-features.mdx",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 4,
-              "frontMatter": {
-                "sidebar_position": 4
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Create a Blog Post",
-                "permalink": "/docs/tutorial-basics/create-a-blog-post"
-              },
-              "next": {
-                "title": "Deploy your site",
-                "permalink": "/docs/tutorial-basics/deploy-your-site"
-              }
-            },
-            {
-              "unversionedId": "tutorial-extras/manage-docs-versions",
-              "id": "tutorial-extras/manage-docs-versions",
-              "title": "Manage Docs Versions",
-              "description": "Docusaurus can manage multiple versions of your docs.",
-              "source": "@site/docs/tutorial-extras/manage-docs-versions.md",
-              "sourceDirName": "tutorial-extras",
-              "slug": "/tutorial-extras/manage-docs-versions",
-              "permalink": "/docs/tutorial-extras/manage-docs-versions",
-              "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-extras/manage-docs-versions.md",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 1,
-              "frontMatter": {
-                "sidebar_position": 1
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Tutorial - Extras",
-                "permalink": "/docs/category/tutorial---extras"
-              },
-              "next": {
-                "title": "Translate your site",
-                "permalink": "/docs/tutorial-extras/translate-your-site"
-              }
-            },
-            {
-              "unversionedId": "tutorial-extras/translate-your-site",
-              "id": "tutorial-extras/translate-your-site",
-              "title": "Translate your site",
-              "description": "Let's translate docs/intro.md to French.",
-              "source": "@site/docs/tutorial-extras/translate-your-site.md",
-              "sourceDirName": "tutorial-extras",
-              "slug": "/tutorial-extras/translate-your-site",
-              "permalink": "/docs/tutorial-extras/translate-your-site",
-              "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-extras/translate-your-site.md",
-              "tags": [],
-              "version": "current",
-              "sidebarPosition": 2,
-              "frontMatter": {
-                "sidebar_position": 2
-              },
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Manage Docs Versions",
-                "permalink": "/docs/tutorial-extras/manage-docs-versions"
+                "title": "Object Lifecycles and States in Trunk Recorder",
+                "permalink": "/docs/notes/STATES"
               }
             }
           ],
@@ -260,66 +333,74 @@
             "tutorialSidebar": [
               {
                 "type": "doc",
+                "id": "CONFIGURE",
+                "label": "Configure"
+              },
+              {
+                "type": "doc",
+                "id": "FAQ",
+                "label": "FAQ"
+              },
+              {
+                "type": "doc",
+                "id": "DEBUG",
+                "label": "Debugging"
+              },
+              {
+                "type": "category",
+                "label": "Install",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "Install/INSTALL-LINUX",
+                    "label": "Linux Install"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Install/INSTALL-DOCKER",
+                    "label": "Docker Install"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Install/INSTALL-PI",
+                    "label": "Raspberry Pi Install"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "Install/INSTALL-MAC",
+                    "label": "Mac Install"
+                  }
+                ]
+              },
+              {
+                "type": "doc",
                 "id": "intro"
               },
               {
                 "type": "category",
-                "label": "Tutorial - Basics",
+                "label": "notes",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
                   {
                     "type": "doc",
-                    "id": "tutorial-basics/create-a-page"
+                    "id": "notes/CALL-HANDLING"
                   },
                   {
                     "type": "doc",
-                    "id": "tutorial-basics/create-a-document"
+                    "id": "notes/PLUGIN-SYSTEM"
                   },
                   {
                     "type": "doc",
-                    "id": "tutorial-basics/create-a-blog-post"
+                    "id": "notes/STATES"
                   },
                   {
                     "type": "doc",
-                    "id": "tutorial-basics/markdown-features"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "tutorial-basics/deploy-your-site"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "tutorial-basics/congratulations"
+                    "id": "notes/STATUS-JSON"
                   }
-                ],
-                "link": {
-                  "type": "generated-index",
-                  "description": "5 minutes to learn the most important Docusaurus concepts.",
-                  "slug": "/category/tutorial---basics",
-                  "permalink": "/docs/category/tutorial---basics"
-                }
-              },
-              {
-                "type": "category",
-                "label": "Tutorial - Extras",
-                "collapsible": true,
-                "collapsed": true,
-                "items": [
-                  {
-                    "type": "doc",
-                    "id": "tutorial-extras/manage-docs-versions"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "tutorial-extras/translate-your-site"
-                  }
-                ],
-                "link": {
-                  "type": "generated-index",
-                  "slug": "/category/tutorial---extras",
-                  "permalink": "/docs/category/tutorial---extras"
-                }
+                ]
               }
             ]
           }
@@ -332,253 +413,104 @@
       "blogSidebarTitle": "Recent posts",
       "blogPosts": [
         {
-          "id": "welcome",
+          "id": "welcome-docusaurus-v2",
           "metadata": {
-            "permalink": "/blog/welcome",
-            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/2021-08-26-welcome/index.md",
-            "source": "@site/blog/2021-08-26-welcome/index.md",
-            "title": "Welcome",
-            "description": "Docusaurus blogging features are powered by the blog plugin.",
-            "date": "2021-08-26T00:00:00.000Z",
-            "formattedDate": "August 26, 2021",
-            "tags": [
-              {
-                "label": "facebook",
-                "permalink": "/blog/tags/facebook"
-              },
-              {
-                "label": "hello",
-                "permalink": "/blog/tags/hello"
-              },
-              {
-                "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
-              }
-            ],
-            "readingTime": 0.405,
-            "hasTruncateMarker": false,
-            "authors": [
-              {
-                "name": "Sébastien Lorber",
-                "title": "Docusaurus maintainer",
-                "url": "https://sebastienlorber.com",
-                "imageURL": "https://github.com/slorber.png",
-                "key": "slorber"
-              },
-              {
-                "name": "Yangshun Tay",
-                "title": "Front End Engineer @ Facebook",
-                "url": "https://github.com/yangshun",
-                "imageURL": "https://github.com/yangshun.png",
-                "key": "yangshun"
-              }
-            ],
-            "frontMatter": {
-              "slug": "welcome",
-              "title": "Welcome",
-              "authors": [
-                "slorber",
-                "yangshun"
-              ],
-              "tags": [
-                "facebook",
-                "hello",
-                "docusaurus"
-              ]
-            },
-            "nextItem": {
-              "title": "MDX Blog Post",
-              "permalink": "/blog/mdx-blog-post"
-            }
-          },
-          "content": "[Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).\n\nSimply add Markdown files (or folders) to the `blog` directory.\n\nRegular blog authors can be added to `authors.yml`.\n\nThe blog post date can be extracted from filenames, such as:\n\n- `2019-05-30-welcome.md`\n- `2019-05-30-welcome/index.md`\n\nA blog post folder can be convenient to co-locate blog post images:\n\n![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)\n\nThe blog supports tags as well!\n\n**And if you don't want a blog**: just delete this directory, and use `blog: false` in your Docusaurus config."
-        },
-        {
-          "id": "mdx-blog-post",
-          "metadata": {
-            "permalink": "/blog/mdx-blog-post",
-            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/2021-08-01-mdx-blog-post.mdx",
-            "source": "@site/blog/2021-08-01-mdx-blog-post.mdx",
-            "title": "MDX Blog Post",
-            "description": "Blog posts support Docusaurus Markdown features, such as MDX.",
-            "date": "2021-08-01T00:00:00.000Z",
-            "formattedDate": "August 1, 2021",
-            "tags": [
-              {
-                "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
-              }
-            ],
-            "readingTime": 0.175,
-            "hasTruncateMarker": false,
-            "authors": [
-              {
-                "name": "Sébastien Lorber",
-                "title": "Docusaurus maintainer",
-                "url": "https://sebastienlorber.com",
-                "imageURL": "https://github.com/slorber.png",
-                "key": "slorber"
-              }
-            ],
-            "frontMatter": {
-              "slug": "mdx-blog-post",
-              "title": "MDX Blog Post",
-              "authors": [
-                "slorber"
-              ],
-              "tags": [
-                "docusaurus"
-              ]
-            },
-            "prevItem": {
-              "title": "Welcome",
-              "permalink": "/blog/welcome"
-            },
-            "nextItem": {
-              "title": "Long Blog Post",
-              "permalink": "/blog/long-blog-post"
-            }
-          },
-          "content": "Blog posts support [Docusaurus Markdown features](https://docusaurus.io/docs/markdown-features), such as [MDX](https://mdxjs.com/).\n\n:::tip\n\nUse the power of React to create interactive blog posts.\n\n```js\n<button onClick={() => alert('button clicked!')}>Click me!</button>\n```\n\n<button onClick={() => alert('button clicked!')}>Click me!</button>\n\n:::"
-        },
-        {
-          "id": "long-blog-post",
-          "metadata": {
-            "permalink": "/blog/long-blog-post",
-            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/2019-05-29-long-blog-post.md",
-            "source": "@site/blog/2019-05-29-long-blog-post.md",
-            "title": "Long Blog Post",
-            "description": "This is the summary of a very long blog post,",
-            "date": "2019-05-29T00:00:00.000Z",
-            "formattedDate": "May 29, 2019",
+            "permalink": "/blog/welcome-docusaurus-v2",
+            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/first-post.md",
+            "source": "@site/blog/first-post.md",
+            "title": "Welcome Docusaurus v2",
+            "description": "This is my first post on Docusaurus 2.",
+            "date": "2023-07-13T01:50:30.827Z",
+            "formattedDate": "July 13, 2023",
             "tags": [
               {
                 "label": "hello",
                 "permalink": "/blog/tags/hello"
               },
               {
-                "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
+                "label": "docusaurus-v2",
+                "permalink": "/blog/tags/docusaurus-v-2"
               }
             ],
-            "readingTime": 2.05,
+            "readingTime": 0.135,
             "hasTruncateMarker": true,
             "authors": [
               {
-                "name": "Endilie Yacop Sucipto",
-                "title": "Maintainer of Docusaurus",
-                "url": "https://github.com/endiliey",
-                "imageURL": "https://github.com/endiliey.png",
-                "key": "endi"
+                "name": "Joel Marcey",
+                "title": "Co-creator of Docusaurus 1",
+                "url": "https://github.com/JoelMarcey",
+                "image_url": "https://github.com/JoelMarcey.png",
+                "imageURL": "https://github.com/JoelMarcey.png"
+              },
+              {
+                "name": "Sébastien Lorber",
+                "title": "Docusaurus maintainer",
+                "url": "https://sebastienlorber.com",
+                "image_url": "https://github.com/slorber.png",
+                "imageURL": "https://github.com/slorber.png"
               }
             ],
             "frontMatter": {
-              "slug": "long-blog-post",
-              "title": "Long Blog Post",
-              "authors": "endi",
+              "title": "Welcome Docusaurus v2",
+              "description": "This is my first post on Docusaurus 2.",
+              "slug": "welcome-docusaurus-v2",
+              "authors": [
+                {
+                  "name": "Joel Marcey",
+                  "title": "Co-creator of Docusaurus 1",
+                  "url": "https://github.com/JoelMarcey",
+                  "image_url": "https://github.com/JoelMarcey.png",
+                  "imageURL": "https://github.com/JoelMarcey.png"
+                },
+                {
+                  "name": "Sébastien Lorber",
+                  "title": "Docusaurus maintainer",
+                  "url": "https://sebastienlorber.com",
+                  "image_url": "https://github.com/slorber.png",
+                  "imageURL": "https://github.com/slorber.png"
+                }
+              ],
               "tags": [
                 "hello",
-                "docusaurus"
-              ]
-            },
-            "prevItem": {
-              "title": "MDX Blog Post",
-              "permalink": "/blog/mdx-blog-post"
-            },
-            "nextItem": {
-              "title": "First Blog Post",
-              "permalink": "/blog/first-blog-post"
+                "docusaurus-v2"
+              ],
+              "image": "https://i.imgur.com/mErPwqL.png",
+              "hide_table_of_contents": false
             }
           },
-          "content": "This is the summary of a very long blog post,\n\nUse a `<!--` `truncate` `-->` comment to limit blog post size in the list view.\n\n<!--truncate-->\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet"
-        },
-        {
-          "id": "first-blog-post",
-          "metadata": {
-            "permalink": "/blog/first-blog-post",
-            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/2019-05-28-first-blog-post.md",
-            "source": "@site/blog/2019-05-28-first-blog-post.md",
-            "title": "First Blog Post",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet",
-            "date": "2019-05-28T00:00:00.000Z",
-            "formattedDate": "May 28, 2019",
-            "tags": [
-              {
-                "label": "hola",
-                "permalink": "/blog/tags/hola"
-              },
-              {
-                "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
-              }
-            ],
-            "readingTime": 0.12,
-            "hasTruncateMarker": false,
-            "authors": [
-              {
-                "name": "Gao Wei",
-                "title": "Docusaurus Core Team",
-                "url": "https://github.com/wgao19",
-                "image_url": "https://github.com/wgao19.png",
-                "imageURL": "https://github.com/wgao19.png"
-              }
-            ],
-            "frontMatter": {
-              "slug": "first-blog-post",
-              "title": "First Blog Post",
-              "authors": {
-                "name": "Gao Wei",
-                "title": "Docusaurus Core Team",
-                "url": "https://github.com/wgao19",
-                "image_url": "https://github.com/wgao19.png",
-                "imageURL": "https://github.com/wgao19.png"
-              },
-              "tags": [
-                "hola",
-                "docusaurus"
-              ]
-            },
-            "prevItem": {
-              "title": "Long Blog Post",
-              "permalink": "/blog/long-blog-post"
-            }
-          },
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet"
+          "content": "Welcome to this blog. This blog is created with [**Docusaurus 2**](https://docusaurus.io/).\n\n<!--truncate-->\n\nThis is my first post on Docusaurus 2.\n\nA whole bunch of exploration to follow."
         }
       ],
       "blogListPaginated": [
         {
           "items": [
-            "welcome",
-            "mdx-blog-post",
-            "long-blog-post",
-            "first-blog-post"
+            "welcome-docusaurus-v2"
           ],
           "metadata": {
             "permalink": "/blog",
             "page": 1,
             "postsPerPage": 10,
             "totalPages": 1,
-            "totalCount": 4,
+            "totalCount": 1,
             "blogDescription": "Blog",
             "blogTitle": "Blog"
           }
         }
       ],
       "blogTags": {
-        "/blog/tags/facebook": {
-          "label": "facebook",
+        "/blog/tags/hello": {
+          "label": "hello",
           "items": [
-            "welcome"
+            "welcome-docusaurus-v2"
           ],
-          "permalink": "/blog/tags/facebook",
+          "permalink": "/blog/tags/hello",
           "pages": [
             {
               "items": [
-                "welcome"
+                "welcome-docusaurus-v2"
               ],
               "metadata": {
-                "permalink": "/blog/tags/facebook",
+                "permalink": "/blog/tags/hello",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -589,73 +521,19 @@
             }
           ]
         },
-        "/blog/tags/hello": {
-          "label": "hello",
+        "/blog/tags/docusaurus-v-2": {
+          "label": "docusaurus-v2",
           "items": [
-            "welcome",
-            "long-blog-post"
+            "welcome-docusaurus-v2"
           ],
-          "permalink": "/blog/tags/hello",
+          "permalink": "/blog/tags/docusaurus-v-2",
           "pages": [
             {
               "items": [
-                "welcome",
-                "long-blog-post"
+                "welcome-docusaurus-v2"
               ],
               "metadata": {
-                "permalink": "/blog/tags/hello",
-                "page": 1,
-                "postsPerPage": 10,
-                "totalPages": 1,
-                "totalCount": 2,
-                "blogDescription": "Blog",
-                "blogTitle": "Blog"
-              }
-            }
-          ]
-        },
-        "/blog/tags/docusaurus": {
-          "label": "docusaurus",
-          "items": [
-            "welcome",
-            "mdx-blog-post",
-            "long-blog-post",
-            "first-blog-post"
-          ],
-          "permalink": "/blog/tags/docusaurus",
-          "pages": [
-            {
-              "items": [
-                "welcome",
-                "mdx-blog-post",
-                "long-blog-post",
-                "first-blog-post"
-              ],
-              "metadata": {
-                "permalink": "/blog/tags/docusaurus",
-                "page": 1,
-                "postsPerPage": 10,
-                "totalPages": 1,
-                "totalCount": 4,
-                "blogDescription": "Blog",
-                "blogTitle": "Blog"
-              }
-            }
-          ]
-        },
-        "/blog/tags/hola": {
-          "label": "hola",
-          "items": [
-            "first-blog-post"
-          ],
-          "permalink": "/blog/tags/hola",
-          "pages": [
-            {
-              "items": [
-                "first-blog-post"
-              ],
-              "metadata": {
-                "permalink": "/blog/tags/hola",
+                "permalink": "/blog/tags/docusaurus-v-2",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,

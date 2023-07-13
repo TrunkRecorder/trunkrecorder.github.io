@@ -7,10 +7,11 @@ export default {
   "title": "My Site",
   "tagline": "Dinosaurs are cool",
   "favicon": "img/favicon.ico",
-  "url": "https://your-docusaurus-test-site.com",
+  "url": "https://TrunkRecorder.github.io",
   "baseUrl": "/",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "organizationName": "TrunkRecorder",
+  "trailingSlash": false,
+  "projectName": "site",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "i18n": {
@@ -60,7 +61,7 @@ export default {
           "position": "left"
         },
         {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://github.com/robotastic/trunk-recorder",
           "label": "GitHub",
           "position": "right"
         }
@@ -74,7 +75,11 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "Tutorial",
+              "label": "install",
+              "to": "/docs/intro"
+            },
+            {
+              "label": "Configure",
               "to": "/docs/intro"
             }
           ]
@@ -83,16 +88,16 @@ export default {
           "title": "Community",
           "items": [
             {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
+              "label": "Sponsor",
+              "href": "https://github.com/sponsors/robotastic"
             },
             {
               "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
+              "href": "https://discord.gg/btJAhESnks"
             },
             {
-              "label": "Twitter",
-              "href": "https://twitter.com/docusaurus"
+              "label": "Wiki",
+              "href": "https://github.com/robotastic/trunk-recorder/wiki"
             }
           ]
         },
@@ -105,12 +110,12 @@ export default {
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "href": "https://github.com/robotastic/trunk-recorder"
             }
           ]
         }
       ],
-      "copyright": "Copyright © 2023 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2023 Luke Berndt. Built with Docusaurus."
     },
     "prism": {
       "theme": {

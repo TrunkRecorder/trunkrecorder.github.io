@@ -79,7 +79,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/robotastic/trunk-recorder',
             label: 'GitHub',
             position: 'right',
           },
@@ -92,7 +92,11 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'install',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Configure',
                 to: '/docs/intro',
               },
             ],
@@ -101,17 +105,17 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Sponsor',
+                href: 'https://github.com/sponsors/robotastic',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/btJAhESnks',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+                label: 'Wiki',
+                href: 'https://github.com/robotastic/trunk-recorder/wiki',
+              }
             ],
           },
           {
@@ -123,12 +127,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/robotastic/trunk-recorder',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Luke Berndt. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

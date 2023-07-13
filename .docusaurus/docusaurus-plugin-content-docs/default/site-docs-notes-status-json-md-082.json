@@ -1,0 +1,20 @@
+{
+  "unversionedId": "notes/STATUS-JSON",
+  "id": "notes/STATUS-JSON",
+  "title": "Status json messages",
+  "description": "The json message are sent over a websocket to the server specified by statusServer config entry.",
+  "source": "@site/docs/notes/STATUS-JSON.md",
+  "sourceDirName": "notes",
+  "slug": "/notes/STATUS-JSON",
+  "permalink": "/docs/notes/STATUS-JSON",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/STATUS-JSON.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Object Lifecycles and States in Trunk Recorder",
+    "permalink": "/docs/notes/STATES"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unversionedId": "DEBUG",
+  "id": "DEBUG",
+  "title": "How to Debug a Seg Fault",
+  "description": "When Trunk Recorder crashes and give a Segmentation Fault error (a SegFault), there are some steps you can take to figure out what is causing it. Pulling this information makes it a lot easier to figure what is going wrong.",
+  "source": "@site/docs/DEBUG.md",
+  "sourceDirName": ".",
+  "slug": "/DEBUG",
+  "permalink": "/docs/DEBUG",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/DEBUG.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_label": "Debugging",
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "FAQ",
+    "permalink": "/docs/FAQ"
+  },
+  "next": {
+    "title": "Linux Install",
+    "permalink": "/docs/Install/INSTALL-LINUX"
+  }
+}

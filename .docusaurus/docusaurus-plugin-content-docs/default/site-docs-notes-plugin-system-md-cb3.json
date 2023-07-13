@@ -1,0 +1,24 @@
+{
+  "unversionedId": "notes/PLUGIN-SYSTEM",
+  "id": "notes/PLUGIN-SYSTEM",
+  "title": "Plugin System",
+  "description": "The plugin system is designed to allow third parties to integrate their own features without changing the core code of trunk-recorder, and allow for features to be updated independently of the trunk-recorder code base. The current methods supported by the plugin system is loosely based on the Status uploader.",
+  "source": "@site/docs/notes/PLUGIN-SYSTEM.md",
+  "sourceDirName": "notes",
+  "slug": "/notes/PLUGIN-SYSTEM",
+  "permalink": "/docs/notes/PLUGIN-SYSTEM",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/PLUGIN-SYSTEM.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "CALL-HANDLING",
+    "permalink": "/docs/notes/CALL-HANDLING"
+  },
+  "next": {
+    "title": "Object Lifecycles and States in Trunk Recorder",
+    "permalink": "/docs/notes/STATES"
+  }
+}

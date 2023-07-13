@@ -1,0 +1,28 @@
+{
+  "unversionedId": "Install/INSTALL-DOCKER",
+  "id": "Install/INSTALL-DOCKER",
+  "title": "Docker",
+  "description": "If you are not going to be modifying the source code, a Docker based install is the easiest way to get started. Images are published frequently to  Docker Hub. The images have GNURadio 3.8 and all other required dependencies built into it, so it should be ready to go and be a much faster solution than compiling. Images have been built for amd64 (amd64 is used by all modern Intel and AMD CPUs) and most popular flavors of ARM.",
+  "source": "@site/docs/Install/INSTALL-DOCKER.md",
+  "sourceDirName": "Install",
+  "slug": "/Install/INSTALL-DOCKER",
+  "permalink": "/docs/Install/INSTALL-DOCKER",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-DOCKER.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_label": "Docker Install",
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Linux Install",
+    "permalink": "/docs/Install/INSTALL-LINUX"
+  },
+  "next": {
+    "title": "Raspberry Pi Install",
+    "permalink": "/docs/Install/INSTALL-PI"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unversionedId": "Install/INSTALL-MAC",
+  "id": "Install/INSTALL-MAC",
+  "title": "MacOS",
+  "description": "There are two main \"package managers\" used on MacOS: Homebrew and MacPorts. Trunk-recorder can be installed with dependencies from one or the other",
+  "source": "@site/docs/Install/INSTALL-MAC.md",
+  "sourceDirName": "Install",
+  "slug": "/Install/INSTALL-MAC",
+  "permalink": "/docs/Install/INSTALL-MAC",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-MAC.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_label": "Mac Install",
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Raspberry Pi Install",
+    "permalink": "/docs/Install/INSTALL-PI"
+  },
+  "next": {
+    "title": "intro",
+    "permalink": "/docs/intro"
+  }
+}

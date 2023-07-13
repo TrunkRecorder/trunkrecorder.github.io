@@ -8,61 +8,66 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "intro",
+          "mainDocId": "CONFIGURE",
           "docs": [
+            {
+              "id": "CONFIGURE",
+              "path": "/docs/CONFIGURE",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "DEBUG",
+              "path": "/docs/DEBUG",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "FAQ",
+              "path": "/docs/FAQ",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Install/INSTALL-DOCKER",
+              "path": "/docs/Install/INSTALL-DOCKER",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Install/INSTALL-LINUX",
+              "path": "/docs/Install/INSTALL-LINUX",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Install/INSTALL-MAC",
+              "path": "/docs/Install/INSTALL-MAC",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Install/INSTALL-PI",
+              "path": "/docs/Install/INSTALL-PI",
+              "sidebar": "tutorialSidebar"
+            },
             {
               "id": "intro",
               "path": "/docs/intro",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/congratulations",
-              "path": "/docs/tutorial-basics/congratulations",
+              "id": "notes/CALL-HANDLING",
+              "path": "/docs/notes/CALL-HANDLING",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-blog-post",
-              "path": "/docs/tutorial-basics/create-a-blog-post",
+              "id": "notes/PLUGIN-SYSTEM",
+              "path": "/docs/notes/PLUGIN-SYSTEM",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-document",
-              "path": "/docs/tutorial-basics/create-a-document",
+              "id": "notes/STATES",
+              "path": "/docs/notes/STATES",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-page",
-              "path": "/docs/tutorial-basics/create-a-page",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/deploy-your-site",
-              "path": "/docs/tutorial-basics/deploy-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/markdown-features",
-              "path": "/docs/tutorial-basics/markdown-features",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-extras/manage-docs-versions",
-              "path": "/docs/tutorial-extras/manage-docs-versions",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-extras/translate-your-site",
-              "path": "/docs/tutorial-extras/translate-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "/category/tutorial---basics",
-              "path": "/docs/category/tutorial---basics",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "/category/tutorial---extras",
-              "path": "/docs/category/tutorial---extras",
+              "id": "notes/STATUS-JSON",
+              "path": "/docs/notes/STATUS-JSON",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -70,8 +75,8 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/intro",
-                "label": "intro"
+                "path": "/docs/CONFIGURE",
+                "label": "Configure"
               }
             }
           }

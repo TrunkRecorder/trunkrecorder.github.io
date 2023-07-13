@@ -1,0 +1,24 @@
+{
+  "unversionedId": "CONFIGURE",
+  "id": "CONFIGURE",
+  "title": "Configuring Trunk Recorder",
+  "description": "It takes a little bit of work to correctly configure Trunk Recorder, but once you get everything working you will not have to touch it again.",
+  "source": "@site/docs/CONFIGURE.md",
+  "sourceDirName": ".",
+  "slug": "/CONFIGURE",
+  "permalink": "/docs/CONFIGURE",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/CONFIGURE.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_label": "Configure",
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "FAQ",
+    "permalink": "/docs/FAQ"
+  }
+}
