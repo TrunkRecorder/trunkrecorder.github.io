@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "My Site",
-  "tagline": "Dinosaurs are cool",
+  "title": "Trunk Recorder",
+  "tagline": "Archiving the Airwaves",
   "favicon": "img/favicon.ico",
   "url": "https://TrunkRecorder.github.io",
   "baseUrl": "/",
@@ -28,11 +28,11 @@ export default {
       {
         "docs": {
           "sidebarPath": "/Users/luke/Projects/TrunkRecorder/site/sidebars.js",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/"
         },
         "blog": {
           "showReadingTime": true,
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/"
         },
         "theme": {
           "customCss": "/Users/luke/Projects/TrunkRecorder/site/src/css/custom.css"
@@ -43,17 +43,17 @@ export default {
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "navbar": {
-      "title": "My Site",
+      "title": "Trunk Recorder",
       "logo": {
         "alt": "My Site Logo",
-        "src": "img/logo.svg"
+        "src": "img/radio.png"
       },
       "items": [
         {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Tutorial"
+          "label": "Docs"
         },
         {
           "to": "/blog",
@@ -75,7 +75,7 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "install",
+              "label": "Install",
               "to": "/docs/intro"
             },
             {

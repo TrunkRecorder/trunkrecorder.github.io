@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Don't just scan",
+    Svg: require('@site/static/img/undraw_recording.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Simultaneously capture all of the transmission from a radio system. 
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Go Digital!',
+    Svg: require('@site/static/img/undraw_code.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Works with Trunked and Conventional radio systems. Captures Project 25 Phase 1 & 2, Motorola SmartNet, and DMR systems... and of course analog!
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Save Money',
+    Svg: require('@site/static/img/undraw_savings.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        You can get started with $25 SDR dongle and a Raspberry Pi... or any computer that can run Linux (or a Mac!)
       </>
     ),
   },

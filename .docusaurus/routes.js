@@ -74,7 +74,7 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '633'),
+    component: ComponentCreator('/docs', '81b'),
     routes: [
       {
         path: '/docs/CONFIGURE',
@@ -145,6 +145,18 @@ export default [
       {
         path: '/docs/notes/STATUS-JSON',
         component: ComponentCreator('/docs/notes/STATUS-JSON', 'd9e'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/Playback',
+        component: ComponentCreator('/docs/Playback', '804'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/Plugins',
+        component: ComponentCreator('/docs/Plugins', '61c'),
         exact: true,
         sidebar: "tutorialSidebar"
       }

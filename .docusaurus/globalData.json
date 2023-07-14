@@ -8,7 +8,7 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "CONFIGURE",
+          "mainDocId": "intro",
           "docs": [
             {
               "id": "CONFIGURE",
@@ -69,14 +69,24 @@
               "id": "notes/STATUS-JSON",
               "path": "/docs/notes/STATUS-JSON",
               "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Playback",
+              "path": "/docs/Playback",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "Plugins",
+              "path": "/docs/Plugins",
+              "sidebar": "tutorialSidebar"
             }
           ],
           "draftIds": [],
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/CONFIGURE",
-                "label": "Configure"
+                "path": "/docs/intro",
+                "label": "Introduction"
               }
             }
           }

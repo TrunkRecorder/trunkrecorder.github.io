@@ -8,7 +8,7 @@
   "slug": "/Install/INSTALL-LINUX",
   "permalink": "/docs/Install/INSTALL-LINUX",
   "draft": false,
-  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-LINUX.md",
+  "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-LINUX.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 1,
@@ -18,8 +18,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Debugging",
-    "permalink": "/docs/DEBUG"
+    "title": "FAQ",
+    "permalink": "/docs/FAQ"
   },
   "next": {
     "title": "Docker Install",

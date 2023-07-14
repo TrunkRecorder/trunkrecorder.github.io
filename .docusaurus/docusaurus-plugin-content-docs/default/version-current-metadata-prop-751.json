@@ -11,21 +11,39 @@
     "tutorialSidebar": [
       {
         "type": "link",
+        "label": "Introduction",
+        "href": "/docs/intro",
+        "docId": "intro"
+      },
+      {
+        "type": "link",
         "label": "Configure",
         "href": "/docs/CONFIGURE",
         "docId": "CONFIGURE"
       },
       {
         "type": "link",
-        "label": "FAQ",
-        "href": "/docs/FAQ",
-        "docId": "FAQ"
+        "label": "Plugins",
+        "href": "/docs/Plugins",
+        "docId": "Plugins"
+      },
+      {
+        "type": "link",
+        "label": "Playback",
+        "href": "/docs/Playback",
+        "docId": "Playback"
       },
       {
         "type": "link",
         "label": "Debugging",
         "href": "/docs/DEBUG",
         "docId": "DEBUG"
+      },
+      {
+        "type": "link",
+        "label": "FAQ",
+        "href": "/docs/FAQ",
+        "docId": "FAQ"
       },
       {
         "type": "category",
@@ -58,12 +76,6 @@
             "docId": "Install/INSTALL-MAC"
           }
         ]
-      },
-      {
-        "type": "link",
-        "label": "intro",
-        "href": "/docs/intro",
-        "docId": "intro"
       },
       {
         "type": "category",
@@ -144,7 +156,7 @@
     },
     "intro": {
       "id": "intro",
-      "title": "intro",
+      "title": "All About Trunk Recorder",
       "description": "Sponsors",
       "sidebar": "tutorialSidebar"
     },
@@ -170,6 +182,18 @@
       "id": "notes/STATUS-JSON",
       "title": "Status json messages",
       "description": "The json message are sent over a websocket to the server specified by statusServer config entry.",
+      "sidebar": "tutorialSidebar"
+    },
+    "Playback": {
+      "id": "Playback",
+      "title": "Playback & Sharing",
+      "description": "By default, Trunk Recorder just dumps a lot of recorded files into a directory. Here are a couple of options to make it easier to browse through recordings and share them on the Internet.",
+      "sidebar": "tutorialSidebar"
+    },
+    "Plugins": {
+      "id": "Plugins",
+      "title": "Plugins",
+      "description": "Plugins make it easy to customize Trunk Recorder and have it better fit you workflow. There are some built-in Plugins that are included in Trunk Recorder and also ones that the Community has developed.",
       "sidebar": "tutorialSidebar"
     }
   }

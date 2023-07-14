@@ -1,7 +1,6 @@
-
 ---
 sidebar_label: 'Introduction'
-sidebar_position: 2
+sidebar_position: 1
 ---
 # All About Trunk Recorder
 

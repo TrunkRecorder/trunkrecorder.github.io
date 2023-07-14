@@ -8,7 +8,7 @@
   "slug": "/Install/INSTALL-MAC",
   "permalink": "/docs/Install/INSTALL-MAC",
   "draft": false,
-  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-MAC.md",
+  "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-MAC.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 4,
@@ -22,7 +22,7 @@
     "permalink": "/docs/Install/INSTALL-PI"
   },
   "next": {
-    "title": "intro",
-    "permalink": "/docs/intro"
+    "title": "CALL-HANDLING",
+    "permalink": "/docs/notes/CALL-HANDLING"
   }
 }

@@ -1,24 +1,24 @@
 {
   "unversionedId": "intro",
   "id": "intro",
-  "title": "intro",
+  "title": "All About Trunk Recorder",
   "description": "Sponsors",
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",
   "permalink": "/docs/intro",
   "draft": false,
-  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro.md",
+  "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/intro.md",
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "tutorialSidebar",
-  "previous": {
-    "title": "Mac Install",
-    "permalink": "/docs/Install/INSTALL-MAC"
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_label": "Introduction",
+    "sidebar_position": 1
   },
+  "sidebar": "tutorialSidebar",
   "next": {
-    "title": "CALL-HANDLING",
-    "permalink": "/docs/notes/CALL-HANDLING"
+    "title": "Configure",
+    "permalink": "/docs/CONFIGURE"
   }
 }

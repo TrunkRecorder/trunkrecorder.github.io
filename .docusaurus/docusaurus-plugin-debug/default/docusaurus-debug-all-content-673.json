@@ -11,8 +11,8 @@
           "className": "docs-version-current",
           "path": "/docs",
           "tagsPath": "/docs/tags",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs",
-          "editUrlLocalized": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/i18n/en/docusaurus-plugin-content-docs/current",
+          "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs",
+          "editUrlLocalized": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/i18n/en/docusaurus-plugin-content-docs/current",
           "isLast": true,
           "routePriority": -1,
           "sidebarFilePath": "/Users/luke/Projects/TrunkRecorder/site/sidebars.js",
@@ -29,7 +29,7 @@
               "slug": "/CONFIGURE",
               "permalink": "/docs/CONFIGURE",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/CONFIGURE.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/CONFIGURE.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 2,
@@ -38,9 +38,13 @@
                 "sidebar_position": 2
               },
               "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/docs/intro"
+              },
               "next": {
-                "title": "FAQ",
-                "permalink": "/docs/FAQ"
+                "title": "Plugins",
+                "permalink": "/docs/Plugins"
               }
             },
             {
@@ -53,22 +57,22 @@
               "slug": "/DEBUG",
               "permalink": "/docs/DEBUG",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/DEBUG.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/DEBUG.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 3,
+              "sidebarPosition": 5,
               "frontMatter": {
                 "sidebar_label": "Debugging",
-                "sidebar_position": 3
+                "sidebar_position": 5
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "FAQ",
-                "permalink": "/docs/FAQ"
+                "title": "Playback",
+                "permalink": "/docs/Playback"
               },
               "next": {
-                "title": "Linux Install",
-                "permalink": "/docs/Install/INSTALL-LINUX"
+                "title": "FAQ",
+                "permalink": "/docs/FAQ"
               }
             },
             {
@@ -81,22 +85,22 @@
               "slug": "/FAQ",
               "permalink": "/docs/FAQ",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/FAQ.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/FAQ.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 2,
+              "sidebarPosition": 6,
               "frontMatter": {
                 "sidebar_label": "FAQ",
-                "sidebar_position": 2
+                "sidebar_position": 6
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Configure",
-                "permalink": "/docs/CONFIGURE"
-              },
-              "next": {
                 "title": "Debugging",
                 "permalink": "/docs/DEBUG"
+              },
+              "next": {
+                "title": "Linux Install",
+                "permalink": "/docs/Install/INSTALL-LINUX"
               }
             },
             {
@@ -109,7 +113,7 @@
               "slug": "/Install/INSTALL-DOCKER",
               "permalink": "/docs/Install/INSTALL-DOCKER",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-DOCKER.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-DOCKER.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 2,
@@ -137,7 +141,7 @@
               "slug": "/Install/INSTALL-LINUX",
               "permalink": "/docs/Install/INSTALL-LINUX",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-LINUX.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-LINUX.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 1,
@@ -147,8 +151,8 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Debugging",
-                "permalink": "/docs/DEBUG"
+                "title": "FAQ",
+                "permalink": "/docs/FAQ"
               },
               "next": {
                 "title": "Docker Install",
@@ -165,7 +169,7 @@
               "slug": "/Install/INSTALL-MAC",
               "permalink": "/docs/Install/INSTALL-MAC",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-MAC.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-MAC.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 4,
@@ -179,8 +183,8 @@
                 "permalink": "/docs/Install/INSTALL-PI"
               },
               "next": {
-                "title": "intro",
-                "permalink": "/docs/intro"
+                "title": "CALL-HANDLING",
+                "permalink": "/docs/notes/CALL-HANDLING"
               }
             },
             {
@@ -193,7 +197,7 @@
               "slug": "/Install/INSTALL-PI",
               "permalink": "/docs/Install/INSTALL-PI",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Install/INSTALL-PI.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Install/INSTALL-PI.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 3,
@@ -214,25 +218,25 @@
             {
               "unversionedId": "intro",
               "id": "intro",
-              "title": "intro",
+              "title": "All About Trunk Recorder",
               "description": "Sponsors",
               "source": "@site/docs/intro.md",
               "sourceDirName": ".",
               "slug": "/intro",
               "permalink": "/docs/intro",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/intro.md",
               "tags": [],
               "version": "current",
-              "frontMatter": {},
-              "sidebar": "tutorialSidebar",
-              "previous": {
-                "title": "Mac Install",
-                "permalink": "/docs/Install/INSTALL-MAC"
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_label": "Introduction",
+                "sidebar_position": 1
               },
+              "sidebar": "tutorialSidebar",
               "next": {
-                "title": "CALL-HANDLING",
-                "permalink": "/docs/notes/CALL-HANDLING"
+                "title": "Configure",
+                "permalink": "/docs/CONFIGURE"
               }
             },
             {
@@ -245,14 +249,14 @@
               "slug": "/notes/CALL-HANDLING",
               "permalink": "/docs/notes/CALL-HANDLING",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/CALL-HANDLING.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/CALL-HANDLING.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "intro",
-                "permalink": "/docs/intro"
+                "title": "Mac Install",
+                "permalink": "/docs/Install/INSTALL-MAC"
               },
               "next": {
                 "title": "Plugin System",
@@ -269,7 +273,7 @@
               "slug": "/notes/PLUGIN-SYSTEM",
               "permalink": "/docs/notes/PLUGIN-SYSTEM",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/PLUGIN-SYSTEM.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/PLUGIN-SYSTEM.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
@@ -293,7 +297,7 @@
               "slug": "/notes/STATES",
               "permalink": "/docs/notes/STATES",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/STATES.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/STATES.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
@@ -317,7 +321,7 @@
               "slug": "/notes/STATUS-JSON",
               "permalink": "/docs/notes/STATUS-JSON",
               "draft": false,
-              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/notes/STATUS-JSON.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/STATUS-JSON.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
@@ -326,6 +330,62 @@
                 "title": "Object Lifecycles and States in Trunk Recorder",
                 "permalink": "/docs/notes/STATES"
               }
+            },
+            {
+              "unversionedId": "Playback",
+              "id": "Playback",
+              "title": "Playback & Sharing",
+              "description": "By default, Trunk Recorder just dumps a lot of recorded files into a directory. Here are a couple of options to make it easier to browse through recordings and share them on the Internet.",
+              "source": "@site/docs/Playback.md",
+              "sourceDirName": ".",
+              "slug": "/Playback",
+              "permalink": "/docs/Playback",
+              "draft": false,
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Playback.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_label": "Playback",
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Plugins",
+                "permalink": "/docs/Plugins"
+              },
+              "next": {
+                "title": "Debugging",
+                "permalink": "/docs/DEBUG"
+              }
+            },
+            {
+              "unversionedId": "Plugins",
+              "id": "Plugins",
+              "title": "Plugins",
+              "description": "Plugins make it easy to customize Trunk Recorder and have it better fit you workflow. There are some built-in Plugins that are included in Trunk Recorder and also ones that the Community has developed.",
+              "source": "@site/docs/Plugins.md",
+              "sourceDirName": ".",
+              "slug": "/Plugins",
+              "permalink": "/docs/Plugins",
+              "draft": false,
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Plugins.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_label": "Plugins",
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Configure",
+                "permalink": "/docs/CONFIGURE"
+              },
+              "next": {
+                "title": "Playback",
+                "permalink": "/docs/Playback"
+              }
             }
           ],
           "drafts": [],
@@ -333,18 +393,33 @@
             "tutorialSidebar": [
               {
                 "type": "doc",
+                "id": "intro",
+                "label": "Introduction"
+              },
+              {
+                "type": "doc",
                 "id": "CONFIGURE",
                 "label": "Configure"
               },
               {
                 "type": "doc",
-                "id": "FAQ",
-                "label": "FAQ"
+                "id": "Plugins",
+                "label": "Plugins"
+              },
+              {
+                "type": "doc",
+                "id": "Playback",
+                "label": "Playback"
               },
               {
                 "type": "doc",
                 "id": "DEBUG",
                 "label": "Debugging"
+              },
+              {
+                "type": "doc",
+                "id": "FAQ",
+                "label": "FAQ"
               },
               {
                 "type": "category",
@@ -373,10 +448,6 @@
                     "label": "Mac Install"
                   }
                 ]
-              },
-              {
-                "type": "doc",
-                "id": "intro"
               },
               {
                 "type": "category",
@@ -416,7 +487,7 @@
           "id": "welcome-docusaurus-v2",
           "metadata": {
             "permalink": "/blog/welcome-docusaurus-v2",
-            "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/blog/first-post.md",
+            "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/blog/first-post.md",
             "source": "@site/blog/first-post.md",
             "title": "Welcome Docusaurus v2",
             "description": "This is my first post on Docusaurus 2.",
