@@ -1,3 +1,10 @@
+
+---
+sidebar_label: 'Introduction'
+sidebar_position: 2
+---
+# All About Trunk Recorder
+
 ## Sponsors
 **Do you find Trunk Recorder and OpenMHz useful?** 
 Become a [Sponsor](https://github.com/sponsors/robotastic) to help support continued development and operation!
@@ -42,23 +49,6 @@ RTL-SDR dongles; HackRF; Ettus USRP B200, B210, B205; BladeRF; Airspy
 
 ### Setup
 * [Configuring a system](./CONFIGURE.md)
-
-### Playback & Sharing
-By default, Trunk Recorder just dumps a lot of recorded files into a directory. Here are a couple of options to make it easier to browse through recordings and share them on the Internet.
-* [OpenMHz](https://github.com/robotastic/trunk-recorder/wiki/Uploading-to-OpenMHz): This is my free hosted platform for sharing recordings
-* [Trunk Player](https://github.com/ScanOC/trunk-player): A great Python based server, if you want to you want to run your own
-* [Rdio Scanner](https://github.com/chuot/rdio-scanner): Provide a good looking, scanner style interface for listening to Trunk Recorder
-* Broadcastify Calls (API): see Radio Reference [forum thread](https://forums.radioreference.com/threads/405236/) and [wiki page](https://wiki.radioreference.com/index.php/Broadcastify-Calls-Trunk-Recorder)
-* [Broadcastify via Liquidsoap](https://github.com/robotastic/trunk-recorder/wiki/Streaming-online-to-Broadcastify-with-Liquid-Soap)
-* [audioplayer.php](https://github.com/robotastic/trunk-recorder/wiki/Using-audioplayer.php)
-* [rosecitytransit's Live Web page](https://github.com/rosecitytransit/trunk-recorder-daily-log)
-
-### Plugins
-
-* [MQTT Status](https://github.com/robotastic/trunk-recorder-mqtt-status): Publishes the current status of a Trunk Recorder instance over MQTT
-* [MQTT Statistics](https://github.com/robotastic/trunk-recorder-mqtt-statistics): Publishes statistics about a Trunk Recorder instance over MQTT
-* [Decode rates logger](https://github.com/rosecitytransit/trunk-recorder-decode-rate): Logs trunking control channel decode rates to a CSV file, and includes a PHP file that outputs an SVG graph
-* [Daily call log and live Web page](https://github.com/rosecitytransit/trunk-recorder-daily-log): Creates a daily log of calls (instead of just individual JSON files) and includes an updating PHP Web page w/audio player
 
 ### Troubleshooting
 
