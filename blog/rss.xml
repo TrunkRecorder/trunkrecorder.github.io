@@ -4,7 +4,7 @@
         <title>My Site Blog</title>
         <link>https://TrunkRecorder.github.io/blog</link>
         <description>My Site Blog</description>
-        <lastBuildDate>Thu, 13 Jul 2023 02:07:51 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Jul 2023 01:16:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Welcome Docusaurus v2]]></title>
             <link>https://TrunkRecorder.github.io/blog/welcome-docusaurus-v2</link>
             <guid>https://TrunkRecorder.github.io/blog/welcome-docusaurus-v2</guid>
-            <pubDate>Thu, 13 Jul 2023 02:07:51 GMT</pubDate>
+            <pubDate>Fri, 14 Jul 2023 01:16:13 GMT</pubDate>
             <description><![CDATA[This is my first post on Docusaurus 2.]]></description>
             <content:encoded><![CDATA[<p>Welcome to this blog. This blog is created with <a href="https://docusaurus.io/" target="_blank" rel="noopener noreferrer"><strong>Docusaurus 2</strong></a>.</p><p>This is my first post on Docusaurus 2.</p><p>A whole bunch of exploration to follow.</p>]]></content:encoded>
             <category>hello</category>
