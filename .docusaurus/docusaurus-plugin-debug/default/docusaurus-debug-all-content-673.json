@@ -32,15 +32,15 @@
               "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/CONFIGURE.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 2,
+              "sidebarPosition": 3,
               "frontMatter": {
                 "sidebar_label": "Configure",
-                "sidebar_position": 2
+                "sidebar_position": 3
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Introduction",
-                "permalink": "/docs/intro"
+                "title": "Mac Install",
+                "permalink": "/docs/Install/INSTALL-MAC"
               },
               "next": {
                 "title": "Plugins",
@@ -60,10 +60,10 @@
               "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/DEBUG.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 5,
+              "sidebarPosition": 6,
               "frontMatter": {
                 "sidebar_label": "Debugging",
-                "sidebar_position": 5
+                "sidebar_position": 6
               },
               "sidebar": "tutorialSidebar",
               "previous": {
@@ -88,10 +88,10 @@
               "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/FAQ.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 6,
+              "sidebarPosition": 7,
               "frontMatter": {
                 "sidebar_label": "FAQ",
-                "sidebar_position": 6
+                "sidebar_position": 7
               },
               "sidebar": "tutorialSidebar",
               "previous": {
@@ -99,8 +99,8 @@
                 "permalink": "/docs/DEBUG"
               },
               "next": {
-                "title": "Linux Install",
-                "permalink": "/docs/Install/INSTALL-LINUX"
+                "title": "CALL-HANDLING",
+                "permalink": "/docs/Notes/CALL-HANDLING"
               }
             },
             {
@@ -151,8 +151,8 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "FAQ",
-                "permalink": "/docs/FAQ"
+                "title": "Introduction",
+                "permalink": "/docs/intro"
               },
               "next": {
                 "title": "Docker Install",
@@ -183,8 +183,8 @@
                 "permalink": "/docs/Install/INSTALL-PI"
               },
               "next": {
-                "title": "CALL-HANDLING",
-                "permalink": "/docs/notes/CALL-HANDLING"
+                "title": "Configure",
+                "permalink": "/docs/CONFIGURE"
               }
             },
             {
@@ -235,100 +235,100 @@
               },
               "sidebar": "tutorialSidebar",
               "next": {
-                "title": "Configure",
-                "permalink": "/docs/CONFIGURE"
+                "title": "Linux Install",
+                "permalink": "/docs/Install/INSTALL-LINUX"
               }
             },
             {
-              "unversionedId": "notes/CALL-HANDLING",
-              "id": "notes/CALL-HANDLING",
+              "unversionedId": "Notes/CALL-HANDLING",
+              "id": "Notes/CALL-HANDLING",
               "title": "CALL-HANDLING",
               "description": "Use Mermaid Live to edit the charts.",
-              "source": "@site/docs/notes/CALL-HANDLING.md",
-              "sourceDirName": "notes",
-              "slug": "/notes/CALL-HANDLING",
-              "permalink": "/docs/notes/CALL-HANDLING",
+              "source": "@site/docs/Notes/CALL-HANDLING.md",
+              "sourceDirName": "Notes",
+              "slug": "/Notes/CALL-HANDLING",
+              "permalink": "/docs/Notes/CALL-HANDLING",
               "draft": false,
-              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/CALL-HANDLING.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Notes/CALL-HANDLING.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Mac Install",
-                "permalink": "/docs/Install/INSTALL-MAC"
+                "title": "FAQ",
+                "permalink": "/docs/FAQ"
               },
               "next": {
                 "title": "Plugin System",
-                "permalink": "/docs/notes/PLUGIN-SYSTEM"
+                "permalink": "/docs/Notes/PLUGIN-SYSTEM"
               }
             },
             {
-              "unversionedId": "notes/PLUGIN-SYSTEM",
-              "id": "notes/PLUGIN-SYSTEM",
+              "unversionedId": "Notes/PLUGIN-SYSTEM",
+              "id": "Notes/PLUGIN-SYSTEM",
               "title": "Plugin System",
               "description": "The plugin system is designed to allow third parties to integrate their own features without changing the core code of trunk-recorder, and allow for features to be updated independently of the trunk-recorder code base. The current methods supported by the plugin system is loosely based on the Status uploader.",
-              "source": "@site/docs/notes/PLUGIN-SYSTEM.md",
-              "sourceDirName": "notes",
-              "slug": "/notes/PLUGIN-SYSTEM",
-              "permalink": "/docs/notes/PLUGIN-SYSTEM",
+              "source": "@site/docs/Notes/PLUGIN-SYSTEM.md",
+              "sourceDirName": "Notes",
+              "slug": "/Notes/PLUGIN-SYSTEM",
+              "permalink": "/docs/Notes/PLUGIN-SYSTEM",
               "draft": false,
-              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/PLUGIN-SYSTEM.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Notes/PLUGIN-SYSTEM.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "CALL-HANDLING",
-                "permalink": "/docs/notes/CALL-HANDLING"
+                "permalink": "/docs/Notes/CALL-HANDLING"
               },
               "next": {
                 "title": "Object Lifecycles and States in Trunk Recorder",
-                "permalink": "/docs/notes/STATES"
+                "permalink": "/docs/Notes/STATES"
               }
             },
             {
-              "unversionedId": "notes/STATES",
-              "id": "notes/STATES",
+              "unversionedId": "Notes/STATES",
+              "id": "Notes/STATES",
               "title": "Object Lifecycles and States in Trunk Recorder",
               "description": "Calls, Recorders and the Wav file write associated with a recorder all go through a lifecycle and have different states associated with each stage of the lifecycle.",
-              "source": "@site/docs/notes/STATES.md",
-              "sourceDirName": "notes",
-              "slug": "/notes/STATES",
-              "permalink": "/docs/notes/STATES",
+              "source": "@site/docs/Notes/STATES.md",
+              "sourceDirName": "Notes",
+              "slug": "/Notes/STATES",
+              "permalink": "/docs/Notes/STATES",
               "draft": false,
-              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/STATES.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Notes/STATES.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Plugin System",
-                "permalink": "/docs/notes/PLUGIN-SYSTEM"
+                "permalink": "/docs/Notes/PLUGIN-SYSTEM"
               },
               "next": {
                 "title": "Status json messages",
-                "permalink": "/docs/notes/STATUS-JSON"
+                "permalink": "/docs/Notes/STATUS-JSON"
               }
             },
             {
-              "unversionedId": "notes/STATUS-JSON",
-              "id": "notes/STATUS-JSON",
+              "unversionedId": "Notes/STATUS-JSON",
+              "id": "Notes/STATUS-JSON",
               "title": "Status json messages",
               "description": "The json message are sent over a websocket to the server specified by statusServer config entry.",
-              "source": "@site/docs/notes/STATUS-JSON.md",
-              "sourceDirName": "notes",
-              "slug": "/notes/STATUS-JSON",
-              "permalink": "/docs/notes/STATUS-JSON",
+              "source": "@site/docs/Notes/STATUS-JSON.md",
+              "sourceDirName": "Notes",
+              "slug": "/Notes/STATUS-JSON",
+              "permalink": "/docs/Notes/STATUS-JSON",
               "draft": false,
-              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/notes/STATUS-JSON.md",
+              "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Notes/STATUS-JSON.md",
               "tags": [],
               "version": "current",
               "frontMatter": {},
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Object Lifecycles and States in Trunk Recorder",
-                "permalink": "/docs/notes/STATES"
+                "permalink": "/docs/Notes/STATES"
               }
             },
             {
@@ -344,10 +344,10 @@
               "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Playback.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 4,
+              "sidebarPosition": 5,
               "frontMatter": {
                 "sidebar_label": "Playback",
-                "sidebar_position": 4
+                "sidebar_position": 5
               },
               "sidebar": "tutorialSidebar",
               "previous": {
@@ -372,10 +372,10 @@
               "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/Plugins.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 3,
+              "sidebarPosition": 4,
               "frontMatter": {
                 "sidebar_label": "Plugins",
-                "sidebar_position": 3
+                "sidebar_position": 4
               },
               "sidebar": "tutorialSidebar",
               "previous": {
@@ -395,31 +395,6 @@
                 "type": "doc",
                 "id": "intro",
                 "label": "Introduction"
-              },
-              {
-                "type": "doc",
-                "id": "CONFIGURE",
-                "label": "Configure"
-              },
-              {
-                "type": "doc",
-                "id": "Plugins",
-                "label": "Plugins"
-              },
-              {
-                "type": "doc",
-                "id": "Playback",
-                "label": "Playback"
-              },
-              {
-                "type": "doc",
-                "id": "DEBUG",
-                "label": "Debugging"
-              },
-              {
-                "type": "doc",
-                "id": "FAQ",
-                "label": "FAQ"
               },
               {
                 "type": "category",
@@ -450,26 +425,51 @@
                 ]
               },
               {
+                "type": "doc",
+                "id": "CONFIGURE",
+                "label": "Configure"
+              },
+              {
+                "type": "doc",
+                "id": "Plugins",
+                "label": "Plugins"
+              },
+              {
+                "type": "doc",
+                "id": "Playback",
+                "label": "Playback"
+              },
+              {
+                "type": "doc",
+                "id": "DEBUG",
+                "label": "Debugging"
+              },
+              {
+                "type": "doc",
+                "id": "FAQ",
+                "label": "FAQ"
+              },
+              {
                 "type": "category",
-                "label": "notes",
+                "label": "Notes",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
                   {
                     "type": "doc",
-                    "id": "notes/CALL-HANDLING"
+                    "id": "Notes/CALL-HANDLING"
                   },
                   {
                     "type": "doc",
-                    "id": "notes/PLUGIN-SYSTEM"
+                    "id": "Notes/PLUGIN-SYSTEM"
                   },
                   {
                     "type": "doc",
-                    "id": "notes/STATES"
+                    "id": "Notes/STATES"
                   },
                   {
                     "type": "doc",
-                    "id": "notes/STATUS-JSON"
+                    "id": "Notes/STATUS-JSON"
                   }
                 ]
               }
@@ -484,78 +484,58 @@
       "blogSidebarTitle": "Recent posts",
       "blogPosts": [
         {
-          "id": "welcome-docusaurus-v2",
+          "id": "welcome-to-better-living",
           "metadata": {
-            "permalink": "/blog/welcome-docusaurus-v2",
+            "permalink": "/blog/welcome-to-better-living",
             "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/blog/first-post.md",
             "source": "@site/blog/first-post.md",
-            "title": "Welcome Docusaurus v2",
-            "description": "This is my first post on Docusaurus 2.",
+            "title": "Welcome to Better Docs",
+            "description": "An intro to the new site",
             "date": "2023-07-13T01:59:51.000Z",
             "formattedDate": "July 13, 2023",
             "tags": [
               {
                 "label": "hello",
                 "permalink": "/blog/tags/hello"
-              },
-              {
-                "label": "docusaurus-v2",
-                "permalink": "/blog/tags/docusaurus-v-2"
               }
             ],
-            "readingTime": 0.135,
+            "readingTime": 0.38,
             "hasTruncateMarker": true,
             "authors": [
               {
-                "name": "Joel Marcey",
-                "title": "Co-creator of Docusaurus 1",
-                "url": "https://github.com/JoelMarcey",
-                "image_url": "https://github.com/JoelMarcey.png",
-                "imageURL": "https://github.com/JoelMarcey.png"
-              },
-              {
-                "name": "Sébastien Lorber",
-                "title": "Docusaurus maintainer",
-                "url": "https://sebastienlorber.com",
-                "image_url": "https://github.com/slorber.png",
-                "imageURL": "https://github.com/slorber.png"
+                "name": "Luke Berndt",
+                "title": "Creator of Trunk REcorder",
+                "url": "https://github.com/robotastic",
+                "image_url": "https://github.com/robotastic.png",
+                "imageURL": "https://github.com/robotastic.png"
               }
             ],
             "frontMatter": {
-              "title": "Welcome Docusaurus v2",
-              "description": "This is my first post on Docusaurus 2.",
-              "slug": "welcome-docusaurus-v2",
+              "title": "Welcome to Better Docs",
+              "description": "An intro to the new site",
+              "slug": "welcome-to-better-living",
               "authors": [
                 {
-                  "name": "Joel Marcey",
-                  "title": "Co-creator of Docusaurus 1",
-                  "url": "https://github.com/JoelMarcey",
-                  "image_url": "https://github.com/JoelMarcey.png",
-                  "imageURL": "https://github.com/JoelMarcey.png"
-                },
-                {
-                  "name": "Sébastien Lorber",
-                  "title": "Docusaurus maintainer",
-                  "url": "https://sebastienlorber.com",
-                  "image_url": "https://github.com/slorber.png",
-                  "imageURL": "https://github.com/slorber.png"
+                  "name": "Luke Berndt",
+                  "title": "Creator of Trunk REcorder",
+                  "url": "https://github.com/robotastic",
+                  "image_url": "https://github.com/robotastic.png",
+                  "imageURL": "https://github.com/robotastic.png"
                 }
               ],
               "tags": [
-                "hello",
-                "docusaurus-v2"
+                "hello"
               ],
-              "image": "https://i.imgur.com/mErPwqL.png",
               "hide_table_of_contents": false
             }
           },
-          "content": "Welcome to this blog. This blog is created with [**Docusaurus 2**](https://docusaurus.io/).\n\n<!--truncate-->\n\nThis is my first post on Docusaurus 2.\n\nA whole bunch of exploration to follow."
+          "content": "Hopefully this site makes the Docs for Trunk Recorder a little more readable, and findable.\n\n<!--truncate-->\n\nTo get started, I just lifted and shifted the docs from the GitHub repo. I want to spend some time going through them though and trying to make them a little easier to read.\n\nOf course, who knows when I will get around to that. I easily get distracted! Pull Request are always welcome though to help improve the docs..."
         }
       ],
       "blogListPaginated": [
         {
           "items": [
-            "welcome-docusaurus-v2"
+            "welcome-to-better-living"
           ],
           "metadata": {
             "permalink": "/blog",
@@ -572,39 +552,16 @@
         "/blog/tags/hello": {
           "label": "hello",
           "items": [
-            "welcome-docusaurus-v2"
+            "welcome-to-better-living"
           ],
           "permalink": "/blog/tags/hello",
           "pages": [
             {
               "items": [
-                "welcome-docusaurus-v2"
+                "welcome-to-better-living"
               ],
               "metadata": {
                 "permalink": "/blog/tags/hello",
-                "page": 1,
-                "postsPerPage": 10,
-                "totalPages": 1,
-                "totalCount": 1,
-                "blogDescription": "Blog",
-                "blogTitle": "Blog"
-              }
-            }
-          ]
-        },
-        "/blog/tags/docusaurus-v-2": {
-          "label": "docusaurus-v2",
-          "items": [
-            "welcome-docusaurus-v2"
-          ],
-          "permalink": "/blog/tags/docusaurus-v-2",
-          "pages": [
-            {
-              "items": [
-                "welcome-docusaurus-v2"
-              ],
-              "metadata": {
-                "permalink": "/blog/tags/docusaurus-v-2",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -640,6 +597,7 @@
   },
   "docusaurus-plugin-debug": {},
   "docusaurus-theme-classic": {},
+  "docusaurus-theme-mermaid": {},
   "docusaurus-bootstrap-plugin": {},
   "docusaurus-mdx-fallback-plugin": {}
 }

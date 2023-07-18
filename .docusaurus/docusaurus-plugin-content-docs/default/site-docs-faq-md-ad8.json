@@ -11,10 +11,10 @@
   "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/FAQ.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 6,
+  "sidebarPosition": 7,
   "frontMatter": {
     "sidebar_label": "FAQ",
-    "sidebar_position": 6
+    "sidebar_position": 7
   },
   "sidebar": "tutorialSidebar",
   "previous": {
@@ -22,7 +22,7 @@
     "permalink": "/docs/DEBUG"
   },
   "next": {
-    "title": "Linux Install",
-    "permalink": "/docs/Install/INSTALL-LINUX"
+    "title": "CALL-HANDLING",
+    "permalink": "/docs/Notes/CALL-HANDLING"
   }
 }

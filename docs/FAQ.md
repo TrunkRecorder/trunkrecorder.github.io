@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'FAQ'
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Ugh! Why is it doing that thing

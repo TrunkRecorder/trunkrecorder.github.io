@@ -22,6 +22,12 @@ export default {
     "path": "i18n",
     "localeConfigs": {}
   },
+  "markdown": {
+    "mermaid": true
+  },
+  "themes": [
+    "@docusaurus/theme-mermaid"
+  ],
   "presets": [
     [
       "classic",
@@ -41,7 +47,7 @@ export default {
     ]
   ],
   "themeConfig": {
-    "image": "img/docusaurus-social-card.jpg",
+    "image": "img/social-card.jpg",
     "navbar": {
       "title": "Trunk Recorder",
       "logo": {
@@ -337,6 +343,13 @@ export default {
     "tableOfContents": {
       "minHeadingLevel": 2,
       "maxHeadingLevel": 3
+    },
+    "mermaid": {
+      "theme": {
+        "dark": "dark",
+        "light": "default"
+      },
+      "options": {}
     }
   },
   "baseUrlIssueBanner": true,
@@ -346,14 +359,10 @@ export default {
   ],
   "customFields": {},
   "plugins": [],
-  "themes": [],
   "scripts": [],
   "headTags": [],
   "stylesheets": [],
   "clientModules": [],
   "titleDelimiter": "|",
-  "noIndex": false,
-  "markdown": {
-    "mermaid": false
-  }
+  "noIndex": false
 };

@@ -53,18 +53,13 @@ export default [
     exact: true
   },
   {
-    path: '/blog/tags/docusaurus-v-2',
-    component: ComponentCreator('/blog/tags/docusaurus-v-2', '7e8'),
-    exact: true
-  },
-  {
     path: '/blog/tags/hello',
     component: ComponentCreator('/blog/tags/hello', 'a4c'),
     exact: true
   },
   {
-    path: '/blog/welcome-docusaurus-v2',
-    component: ComponentCreator('/blog/welcome-docusaurus-v2', '84e'),
+    path: '/blog/welcome-to-better-living',
+    component: ComponentCreator('/blog/welcome-to-better-living', '329'),
     exact: true
   },
   {
@@ -74,7 +69,7 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '81b'),
+    component: ComponentCreator('/docs', '826'),
     routes: [
       {
         path: '/docs/CONFIGURE',
@@ -125,26 +120,26 @@ export default [
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/notes/CALL-HANDLING',
-        component: ComponentCreator('/docs/notes/CALL-HANDLING', 'a35'),
+        path: '/docs/Notes/CALL-HANDLING',
+        component: ComponentCreator('/docs/Notes/CALL-HANDLING', '520'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/notes/PLUGIN-SYSTEM',
-        component: ComponentCreator('/docs/notes/PLUGIN-SYSTEM', 'c1a'),
+        path: '/docs/Notes/PLUGIN-SYSTEM',
+        component: ComponentCreator('/docs/Notes/PLUGIN-SYSTEM', '780'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/notes/STATES',
-        component: ComponentCreator('/docs/notes/STATES', '34a'),
+        path: '/docs/Notes/STATES',
+        component: ComponentCreator('/docs/Notes/STATES', '222'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/notes/STATUS-JSON',
-        component: ComponentCreator('/docs/notes/STATUS-JSON', 'd9e'),
+        path: '/docs/Notes/STATUS-JSON',
+        component: ComponentCreator('/docs/Notes/STATUS-JSON', 'd7d'),
         exact: true,
         sidebar: "tutorialSidebar"
       },

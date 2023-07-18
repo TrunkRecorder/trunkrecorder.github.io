@@ -18,8 +18,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "FAQ",
-    "permalink": "/docs/FAQ"
+    "title": "Introduction",
+    "permalink": "/docs/intro"
   },
   "next": {
     "title": "Docker Install",

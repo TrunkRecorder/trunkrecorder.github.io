@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_recording.svg').default,
     description: (
       <>
-        Simultaneously capture all of the transmission from a radio system. 
+        Instead of listening to a single channel, listen to all of them. Simultaneously capture all of the transmission from a radio system. 
       </>
     ),
   },
@@ -22,7 +22,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Save Money',
+    title: 'Low Cost',
     Svg: require('@site/static/img/undraw_savings.svg').default,
     description: (
       <>

@@ -70,20 +70,6 @@
     "sidebar": "sidebar---blog-814-8ac",
     "tags": "tags---blog-tagsa-70-da2"
   },
-  "/blog/tags/docusaurus-v-2-7e8": {
-    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
-    "__context": {
-      "plugin": "plugin---blog-46-f-0f5"
-    },
-    "sidebar": "sidebar---blog-814-8ac",
-    "items": [
-      {
-        "content": "content---blogb-65-fe9"
-      }
-    ],
-    "tag": "tag---blog-tags-docusaurus-v-2-a-95-d2c",
-    "listMetadata": "listMetadata---blog-tags-docusaurus-v-21-e-7-d10"
-  },
   "/blog/tags/hello-a4c": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
@@ -98,13 +84,13 @@
     "tag": "tag---blog-tags-hello-30-a-bed",
     "listMetadata": "listMetadata---blog-tags-hello-664-70a"
   },
-  "/blog/welcome-docusaurus-v2-84e": {
+  "/blog/welcome-to-better-living-329": {
     "__comp": "__comp---theme-blog-post-pageccc-cab",
     "__context": {
       "plugin": "plugin---blog-46-f-0f5"
     },
     "sidebar": "sidebar---blog-814-8ac",
-    "content": "content---blog-welcome-docusaurus-v-27-fc-816"
+    "content": "content---blog-welcome-to-better-living-7-fc-2dc"
   },
   "/markdown-page-641": {
     "__comp": "__comp---theme-mdx-page-1-f-3-b90",
@@ -113,7 +99,7 @@
     },
     "content": "content---markdown-page-393-028"
   },
-  "/docs-81b": {
+  "/docs-826": {
     "__comp": "__comp---theme-doc-page-1-be-9be",
     "__context": {
       "plugin": "plugin---docs-4-e-0-fe6"
@@ -152,21 +138,21 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-intro-0-e-3-be1"
   },
-  "/docs/notes/CALL-HANDLING-a35": {
+  "/docs/Notes/CALL-HANDLING-520": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-notes-call-handling-53-b-3b1"
+    "content": "content---docs-notes-call-handling-686-991"
   },
-  "/docs/notes/PLUGIN-SYSTEM-c1a": {
+  "/docs/Notes/PLUGIN-SYSTEM-780": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-notes-plugin-syste-mcb-3-099"
+    "content": "content---docs-notes-plugin-system-1-b-6-9a0"
   },
-  "/docs/notes/STATES-34a": {
+  "/docs/Notes/STATES-222": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-notes-state-sf-95-9b8"
+    "content": "content---docs-notes-states-7-c-2-f4b"
   },
-  "/docs/notes/STATUS-JSON-d9e": {
+  "/docs/Notes/STATUS-JSON-d7d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-notes-status-json-082-7d5"
+    "content": "content---docs-notes-status-json-96-d-752"
   },
   "/docs/Playback-804": {
     "__comp": "__comp---theme-doc-item-178-a40",

@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Describes how to install and use Trunk Recorder <head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

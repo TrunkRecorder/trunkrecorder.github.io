@@ -16,36 +16,6 @@
         "docId": "intro"
       },
       {
-        "type": "link",
-        "label": "Configure",
-        "href": "/docs/CONFIGURE",
-        "docId": "CONFIGURE"
-      },
-      {
-        "type": "link",
-        "label": "Plugins",
-        "href": "/docs/Plugins",
-        "docId": "Plugins"
-      },
-      {
-        "type": "link",
-        "label": "Playback",
-        "href": "/docs/Playback",
-        "docId": "Playback"
-      },
-      {
-        "type": "link",
-        "label": "Debugging",
-        "href": "/docs/DEBUG",
-        "docId": "DEBUG"
-      },
-      {
-        "type": "link",
-        "label": "FAQ",
-        "href": "/docs/FAQ",
-        "docId": "FAQ"
-      },
-      {
         "type": "category",
         "label": "Install",
         "collapsible": true,
@@ -78,34 +48,64 @@
         ]
       },
       {
+        "type": "link",
+        "label": "Configure",
+        "href": "/docs/CONFIGURE",
+        "docId": "CONFIGURE"
+      },
+      {
+        "type": "link",
+        "label": "Plugins",
+        "href": "/docs/Plugins",
+        "docId": "Plugins"
+      },
+      {
+        "type": "link",
+        "label": "Playback",
+        "href": "/docs/Playback",
+        "docId": "Playback"
+      },
+      {
+        "type": "link",
+        "label": "Debugging",
+        "href": "/docs/DEBUG",
+        "docId": "DEBUG"
+      },
+      {
+        "type": "link",
+        "label": "FAQ",
+        "href": "/docs/FAQ",
+        "docId": "FAQ"
+      },
+      {
         "type": "category",
-        "label": "notes",
+        "label": "Notes",
         "collapsible": true,
         "collapsed": true,
         "items": [
           {
             "type": "link",
             "label": "CALL-HANDLING",
-            "href": "/docs/notes/CALL-HANDLING",
-            "docId": "notes/CALL-HANDLING"
+            "href": "/docs/Notes/CALL-HANDLING",
+            "docId": "Notes/CALL-HANDLING"
           },
           {
             "type": "link",
             "label": "Plugin System",
-            "href": "/docs/notes/PLUGIN-SYSTEM",
-            "docId": "notes/PLUGIN-SYSTEM"
+            "href": "/docs/Notes/PLUGIN-SYSTEM",
+            "docId": "Notes/PLUGIN-SYSTEM"
           },
           {
             "type": "link",
             "label": "Object Lifecycles and States in Trunk Recorder",
-            "href": "/docs/notes/STATES",
-            "docId": "notes/STATES"
+            "href": "/docs/Notes/STATES",
+            "docId": "Notes/STATES"
           },
           {
             "type": "link",
             "label": "Status json messages",
-            "href": "/docs/notes/STATUS-JSON",
-            "docId": "notes/STATUS-JSON"
+            "href": "/docs/Notes/STATUS-JSON",
+            "docId": "Notes/STATUS-JSON"
           }
         ]
       }
@@ -160,26 +160,26 @@
       "description": "Sponsors",
       "sidebar": "tutorialSidebar"
     },
-    "notes/CALL-HANDLING": {
-      "id": "notes/CALL-HANDLING",
+    "Notes/CALL-HANDLING": {
+      "id": "Notes/CALL-HANDLING",
       "title": "CALL-HANDLING",
       "description": "Use Mermaid Live to edit the charts.",
       "sidebar": "tutorialSidebar"
     },
-    "notes/PLUGIN-SYSTEM": {
-      "id": "notes/PLUGIN-SYSTEM",
+    "Notes/PLUGIN-SYSTEM": {
+      "id": "Notes/PLUGIN-SYSTEM",
       "title": "Plugin System",
       "description": "The plugin system is designed to allow third parties to integrate their own features without changing the core code of trunk-recorder, and allow for features to be updated independently of the trunk-recorder code base. The current methods supported by the plugin system is loosely based on the Status uploader.",
       "sidebar": "tutorialSidebar"
     },
-    "notes/STATES": {
-      "id": "notes/STATES",
+    "Notes/STATES": {
+      "id": "Notes/STATES",
       "title": "Object Lifecycles and States in Trunk Recorder",
       "description": "Calls, Recorders and the Wav file write associated with a recorder all go through a lifecycle and have different states associated with each stage of the lifecycle.",
       "sidebar": "tutorialSidebar"
     },
-    "notes/STATUS-JSON": {
-      "id": "notes/STATUS-JSON",
+    "Notes/STATUS-JSON": {
+      "id": "Notes/STATUS-JSON",
       "title": "Status json messages",
       "description": "The json message are sent over a websocket to the server specified by statusServer config entry.",
       "sidebar": "tutorialSidebar"

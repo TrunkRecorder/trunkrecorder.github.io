@@ -1,25 +1,20 @@
 ---
-title: Welcome Docusaurus v2
-description: This is my first post on Docusaurus 2.
-slug: welcome-docusaurus-v2
+title: Welcome to Better Docs
+description: An intro to the new site
+slug: welcome-to-better-living
 authors:
-  - name: Joel Marcey
-    title: Co-creator of Docusaurus 1
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
-  - name: Sébastien Lorber
-    title: Docusaurus maintainer
-    url: https://sebastienlorber.com
-    image_url: https://github.com/slorber.png
-tags: [hello, docusaurus-v2]
-image: https://i.imgur.com/mErPwqL.png
+  - name: Luke Berndt
+    title: Creator of Trunk REcorder
+    url: https://github.com/robotastic
+    image_url: https://github.com/robotastic.png
+tags: [hello]
 hide_table_of_contents: false
 ---
 
-Welcome to this blog. This blog is created with [**Docusaurus 2**](https://docusaurus.io/).
+Hopefully this site makes the Docs for Trunk Recorder a little more readable, and findable.
 
 <!--truncate-->
 
-This is my first post on Docusaurus 2.
+To get started, I just lifted and shifted the docs from the GitHub repo. I want to spend some time going through them though and trying to make them a little easier to read.
 
-A whole bunch of exploration to follow.
+Of course, who knows when I will get around to that. I easily get distracted! Pull Request are always welcome though to help improve the docs... 

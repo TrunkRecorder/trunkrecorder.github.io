@@ -51,23 +51,23 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "notes/CALL-HANDLING",
-              "path": "/docs/notes/CALL-HANDLING",
+              "id": "Notes/CALL-HANDLING",
+              "path": "/docs/Notes/CALL-HANDLING",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "notes/PLUGIN-SYSTEM",
-              "path": "/docs/notes/PLUGIN-SYSTEM",
+              "id": "Notes/PLUGIN-SYSTEM",
+              "path": "/docs/Notes/PLUGIN-SYSTEM",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "notes/STATES",
-              "path": "/docs/notes/STATES",
+              "id": "Notes/STATES",
+              "path": "/docs/Notes/STATES",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "notes/STATUS-JSON",
-              "path": "/docs/notes/STATUS-JSON",
+              "id": "Notes/STATUS-JSON",
+              "path": "/docs/Notes/STATUS-JSON",
               "sidebar": "tutorialSidebar"
             },
             {

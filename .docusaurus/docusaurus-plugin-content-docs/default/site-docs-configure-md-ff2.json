@@ -11,15 +11,15 @@
   "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/CONFIGURE.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 2,
+  "sidebarPosition": 3,
   "frontMatter": {
     "sidebar_label": "Configure",
-    "sidebar_position": 2
+    "sidebar_position": 3
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Introduction",
-    "permalink": "/docs/intro"
+    "title": "Mac Install",
+    "permalink": "/docs/Install/INSTALL-MAC"
   },
   "next": {
     "title": "Plugins",

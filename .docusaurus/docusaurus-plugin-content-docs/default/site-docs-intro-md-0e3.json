@@ -18,7 +18,7 @@
   },
   "sidebar": "tutorialSidebar",
   "next": {
-    "title": "Configure",
-    "permalink": "/docs/CONFIGURE"
+    "title": "Linux Install",
+    "permalink": "/docs/Install/INSTALL-LINUX"
   }
 }

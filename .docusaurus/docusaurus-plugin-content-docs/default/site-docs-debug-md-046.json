@@ -11,10 +11,10 @@
   "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/docs/DEBUG.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 5,
+  "sidebarPosition": 6,
   "frontMatter": {
     "sidebar_label": "Debugging",
-    "sidebar_position": 5
+    "sidebar_position": 6
   },
   "sidebar": "tutorialSidebar",
   "previous": {

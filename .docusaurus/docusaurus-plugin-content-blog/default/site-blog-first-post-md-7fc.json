@@ -1,64 +1,44 @@
 {
-  "permalink": "/blog/welcome-docusaurus-v2",
+  "permalink": "/blog/welcome-to-better-living",
   "editUrl": "https://github.com/TrunkRecorder/trunkrecorder.github.io/tree/main/blog/first-post.md",
   "source": "@site/blog/first-post.md",
-  "title": "Welcome Docusaurus v2",
-  "description": "This is my first post on Docusaurus 2.",
+  "title": "Welcome to Better Docs",
+  "description": "An intro to the new site",
   "date": "2023-07-13T01:59:51.000Z",
   "formattedDate": "July 13, 2023",
   "tags": [
     {
       "label": "hello",
       "permalink": "/blog/tags/hello"
-    },
-    {
-      "label": "docusaurus-v2",
-      "permalink": "/blog/tags/docusaurus-v-2"
     }
   ],
-  "readingTime": 0.135,
+  "readingTime": 0.38,
   "hasTruncateMarker": true,
   "authors": [
     {
-      "name": "Joel Marcey",
-      "title": "Co-creator of Docusaurus 1",
-      "url": "https://github.com/JoelMarcey",
-      "image_url": "https://github.com/JoelMarcey.png",
-      "imageURL": "https://github.com/JoelMarcey.png"
-    },
-    {
-      "name": "Sébastien Lorber",
-      "title": "Docusaurus maintainer",
-      "url": "https://sebastienlorber.com",
-      "image_url": "https://github.com/slorber.png",
-      "imageURL": "https://github.com/slorber.png"
+      "name": "Luke Berndt",
+      "title": "Creator of Trunk REcorder",
+      "url": "https://github.com/robotastic",
+      "image_url": "https://github.com/robotastic.png",
+      "imageURL": "https://github.com/robotastic.png"
     }
   ],
   "frontMatter": {
-    "title": "Welcome Docusaurus v2",
-    "description": "This is my first post on Docusaurus 2.",
-    "slug": "welcome-docusaurus-v2",
+    "title": "Welcome to Better Docs",
+    "description": "An intro to the new site",
+    "slug": "welcome-to-better-living",
     "authors": [
       {
-        "name": "Joel Marcey",
-        "title": "Co-creator of Docusaurus 1",
-        "url": "https://github.com/JoelMarcey",
-        "image_url": "https://github.com/JoelMarcey.png",
-        "imageURL": "https://github.com/JoelMarcey.png"
-      },
-      {
-        "name": "Sébastien Lorber",
-        "title": "Docusaurus maintainer",
-        "url": "https://sebastienlorber.com",
-        "image_url": "https://github.com/slorber.png",
-        "imageURL": "https://github.com/slorber.png"
+        "name": "Luke Berndt",
+        "title": "Creator of Trunk REcorder",
+        "url": "https://github.com/robotastic",
+        "image_url": "https://github.com/robotastic.png",
+        "imageURL": "https://github.com/robotastic.png"
       }
     ],
     "tags": [
-      "hello",
-      "docusaurus-v2"
+      "hello"
     ],
-    "image": "https://i.imgur.com/mErPwqL.png",
     "hide_table_of_contents": false
   }
 }

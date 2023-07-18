@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Debugging'
-sidebar_position: 5
+sidebar_position: 6
 ---
 # How to Debug a Seg Fault
 
