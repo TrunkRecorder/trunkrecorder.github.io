@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_savings.svg').default,
     description: (
       <>
-        You can get started with $25 SDR dongle and a Raspberry Pi... or any computer that can run Linux (or a Mac!)
+        You can get started with a $25 SDR dongle and a Raspberry Pi... or any computer that can run Linux (or a Mac!)
       </>
     ),
   },

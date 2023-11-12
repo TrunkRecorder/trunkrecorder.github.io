@@ -2,7 +2,6 @@
 sidebar_label: 'Configure'
 sidebar_position: 3
 ---
-
 # Configuring Trunk Recorder
 
 It takes a little bit of work to correctly configure Trunk Recorder, but once you get everything working you will not have to touch it again.
@@ -105,7 +104,6 @@ Here is a map of the different sections of the *config.json* file:
 ```
 
 There is a list of available Plugins [here](./Plugins.md).
-
 
 ### Global Configs
 
@@ -219,28 +217,232 @@ There is a list of available Plugins [here](./Plugins.md).
 | multiSiteSystemName    |          |               | string               | The name of the system that this site belongs to. **This is required for SmartNet in Multi-Site mode.** |
 | multiSiteSystemNumber  |          | 0             | number               | An arbitrary number used to identify this system for SmartNet in Multi-Site mode. |
 
-Multi-Site mode attempts to avoid recording duplicate calls being broadcasted on multiple sites. Trunk recorder will not record duplicate calls on the same talkgroup for systems that have multiSite enabled. To ensure that both calls belong to the same system, Trunk Recorder will verify that both sites have the same WACN for P25, or the same multiSiteSystemName for SmartNet. By default, trunk-recorder will record the call from the first site that it receives the grant on, and any additional grants for the same call on other sites will be ignored. If you want to to specify the preferred site for a specific talk group, you can specify the preferred NAC in decimal format in the talk group CSV file.
+When enabled, Multi-Site mode attempts to avoid recording duplicate calls by detecting simulcasted transmissions for the same talkgroup across multiple sites at the same time.
+
+For P25, Trunk Recorder will match calls that have the same WACN and same talkgroup number but a different NAC. For SmartNet, Trunk Recorder will match calls that have the same multiSiteSystemName and same talkgroup number but different multiSiteSystemNumber.
+
+By default, Trunk Recorder will record the call from the first site to receive the grant and ignore the duplicate grants from the other related sites. If you want to specify the preferred site for a given talkgroup number you can specify the preferred NAC (in decimal format) in the [talkgroupsFile](#talkgroupsFile).
+
+Note: While multiSiteSystemName and multiSiteSystemNumber are normally used for SmartNet systems, these settings may also be used to override the default de-duplication logic for P25 systems where the mutliSite feature may not be correctly detecting duplicates. An example would be when two or more sites within a P25 system are using the same NAC and WACN. In such a deployment as a workaround, for each related system object, set multiSiteSystemName to a shared value and multiSiteSystemNumber to a unique value:
+
+```
+{
+    ...
+    "systems": [
+        {
+            "type": "P25",
+            ...
+            "multiSite": "true",
+            "multiSiteSystemName": "somesharedname",
+            "multiSiteSystemNumber": 1
+        },
+        {
+            "type": "P25",
+            ...
+            "multiSite": "true",
+            "multiSiteSystemName": "somesharedname",
+            "multiSiteSystemNumber": 2
+        }
+    ]
+    ...
+}
+```
+
+#### Plugin Object
+
+| Key     | Required | Default Value | Type                 | Description                                                  |
+| ------- | :------: | ------------- | -------------------- | ------------------------------------------------------------ |
+| library |    ✓     |               | string               | the name of the library that contains the plugin.            |
+| name    |    ✓     |               | string               | the name of the plugin. This name is used to find the `<name>_plugin_new` method that creates a new instance of the plugin. |
+| enabled |          | true          | **true** / **false** | control whether a configured plugin is enabled or disabled   |
+|         |          |               |                      | *Additional elements can be added, they will be passed into the `parse_config` method of the plugin.* |
+
+##### Rdio Scanner Plugin
+
+**Name:** rdioscanner_uploader
+**Library:** librdioscanner_uploader.so
+
+This plugin makes it easy to connect Trunk Recorder with [Rdio Scanner](https://github.com/chuot/rdio-scanner). It uploads recordings and the information about them. The following additional settings are required:
+
+| Key     | Required | Default Value | Type   | Description                                                  |
+| ------- | :------: | ------------- | ------ | ------------------------------------------------------------ |
+| server  |    ✓     |               | string | The URL for uploading to Rdio Scanner. The default is an empty string. It should be the same URL as the one you are using to access Rdio Scanner. |
+| systems |    ✓     |               | array  | This is an array of objects, where each is a system that should be passed to Rdio Scanner. More information about what should be in each object is in the following table. |
+
+*Rdio Scanner System Object:*
+
+| Key       | Required | Default Value | Type   | Description                                                  |
+| --------- | :------: | ------------- | ------ | ------------------------------------------------------------ |
+| systemId  |    ✓     |               | number | System ID for Rdio Scanner.                                  |
+| apiKey    |    ✓     |               | string | System-specific API key for uploading calls to Rdio Scanner. See the ApiKey section in the Rdio Scanner administrative dashboard for the value it should be. |
+| shortName |    ✓     |               | string | This should match the shortName of a system that is defined in the main section of the config file. |
+
+
+
+##### Example Plugin Object:
+
+```yaml
+        {
+          "name": "rdioscanner_uploader",
+          "library": "librdioscanner_uploader.so",
+          "server": "http://127.0.0.1",
+          "systems": [{
+                  "shortName": "test",
+                  "apiKey": "fakekey",
+                  "systemId": 411
+          }
+```
+
+##### simplestream Plugin
+
+**Name:** simplestream
+**Library:** libsimplestream.so
+
+This plugin streams uncompressed audio (16 bit Int, 8 kHz, mono) to UDP or TCP ports in real time as it is being recorded by trunk-recorder.  It can be configured to stream audio from all talkgroups and systems being recorded or only specified talkgroups and systems.  TGID information can be prepended to the audio data to allow the receiving program to take action based on the TGID.  Audio from different Systems should be streamed to different UDP/TCP ports to prevent crosstalk and interleaved audio from talkgroups with the same TGID on different systems.
+
+This plugin does not, by itself, stream audio to any online services.  Because it sends uncompressed PCM audio, it is not bandwidth efficient and is intended mostly to send audio to other programs running on the same computer as trunk-recorder or to other computers on the LAN.  The programs receiving PCM audio from this plugin may play it on speakers, compress it and stream it to an online service, etc.
+
+**NOTE 1: In order for this plugin to work, the audioStreaming option in the Global Configs section (see above) must be set to true.**
+
+**NOTE 2: trunk-recorder passes analog audio to this plugin at 16 kHz sample rate and digital audio at 8 kHz sample rate.  Since the audio data being streamed doesn't contain the sample rate, analog and digital audio should be configured to be sent to different ports to receivers that are matched to the same sample rate.**
+
+| Key     | Required | Default Value | Type   | Description                                                  |
+| ------- | :------: | ------------- | ------ | ------------------------------------------------------------ |
+| streams |    ✓     |               | array  | This is an array of objects, where each is an audio stream that will be sent to a specific IP address and UDP port. More information about what should be in each object is in the following table. |
+
+*Audio Stream Object:*
+
+| Key       | Required | Default Value | Type                 | Description                                                  |
+| --------- | :------: | ------------- | -------------------- | ------------------------------------------------------------ |
+| address   |    ✓     |               | string               | IP address to send this audio stream to.  Use "127.0.0.1" to send to the same computer that trunk-recorder is running on. |
+| port      |    ✓     |               | number               | UDP or TCP port that this stream will send audio to.         |
+| TGID      |    ✓     |               | number               | Audio from this Talkgroup ID will be sent on this stream.  Set to 0 to stream all recorded talkgroups. |
+| sendTGID  |          |     false     | **true** / **false** | When set to true, the TGID will be prepended in long integer format (4 bytes, little endian) to the audio data each time a packet is sent. |
+| shortName |          |               | string               | shortName of the System that audio should be streamed for.  This should match the shortName of a system that is defined in the main section of the config file.  When omitted, all Systems will be streamed to the address and port configured.  If TGIDs from Systems overlap, each system must be sent to a different port to prevent interleaved audio for talkgroups from different Systems with the same TGID.
+|  useTCP   |          |     false     | **true** / **false** | When set to true, TCP will be used instead of UDP.
+
+###### Plugin Object Example #1:
+This example will stream audio from talkgroup 58914 on system "CountyTrunked" to the local machine on UDP port 9123.
+```yaml
+        {
+          "name":"simplestream",
+          "library":"libsimplestream.so",
+          "streams":[{
+            "TGID":58914,
+            "address":"127.0.0.1",
+            "port":9123,
+            "sendTGID":false,
+            "shortName":"CountyTrunked"}
+        }
+```
+
+###### Plugin Object Example #2:
+This example will stream audio from talkgroup 58914 from System CountyTrunked to the local machine on UDP port 9123 and stream audio from talkgroup 58916 from System "StateTrunked" to the local machine on UDP port 9124.
+```yaml
+        {
+          "name":"simplestream",
+          "library":"libsimplestream.so",
+          "streams":[{
+            "TGID":58914,
+            "address":"127.0.0.1",
+            "port":9123,
+            "sendTGID":false,
+            "shortName":"CountyTrunked"},
+           {"TGID":58916,
+            "address":"127.0.0.1",
+            "port":9124,
+            "sendTGID":false,
+            "shortName":"StateTrunked"}
+          ]}
+        }
+```
+
+###### Plugin Object Example #3:
+This example will stream audio from talkgroups 58914 and 58916 from all Systems to the local machine on the same UDP port 9123.  It will prepend the TGID to the audio data in each UDP packet so that the receiving program can differentiate the two audio streams (the receiver may decide to only play one depending on priority, mix the two streams, play one left and one right, etc.)
+```yaml
+        {
+          "name":"simplestream",
+          "library":"libsimplestream.so",
+          "streams":[{
+            "TGID":58914,
+            "address":"127.0.0.1",
+            "port":9123,
+            "sendTGID":true},
+           {"TGID":58916,
+            "address":"127.0.0.1",
+            "port":9123,
+            "sendTGID":true}
+          ]}
+        }
+```
+###### Plugin Object Example #4:
+This example will stream audio from all talkgroups being recorded on System CountyTrunked to the local machine on UDP port 9123.  It will prepend the TGID to the audio data in each UDP packet so that the receiving program can decide which ones to play or otherwise handle)
+```yaml
+        {
+          "name":"simplestream",
+          "library":"libsimplestream.so",
+          "streams":[{
+            "TGID":0,
+            "address":"127.0.0.1",
+            "port":9123,
+            "sendTGID":true,
+            "shortName":"CountyTrunked"}
+        }
+```
+##### Example - Sending Audio to pulseaudio
+pulseaudio is the default sound system on many Linux computers, including the Raspberry Pi.  If configured to do so, pulseaudio can accept raw audio via TCP connection using the module-simple-protocol-tcp module.  Each TCP connection will show up as a different "application" in the pavucontrol volume mixer.
+
+An example command to set up pulseaudio to receive 8 kHz digital audio from simplestream on TCP port 9125 (for 16 kHz analog audio, use `rate=16000`):
+```
+pacmd load-module module-simple-protocol-tcp sink=1 playback=true port=9125 format=s16le rate=8000 channels=1
+```
+The matching simplestream config to send audio from talkgroup 58918 to TCP port 9125 would then be something like this:
+```yaml
+        {
+          "name":"simplestream",
+          "library":"libsimplestream.so",
+          "streams":[{
+            "TGID":58918,
+            "address":"127.0.0.1",
+            "port":9125,
+            "sendTGID":false,
+            "shortName":"CountyTrunked",
+            "useTCP":true}
+        }
+```
 
 ## talkgroupsFile
 
 This file provides info on the different talkgroups in a trunking system. A lot of this info can be found on the [Radio Reference](http://www.radioreference.com/) website. You need to be a Radio Reference member to download the table for your system preformatted as a CSV file. You can also try clicking on the "List All in one table" link, selecting everything in the table and copying it into a spreadsheet program, and then exporting or saving as a CSV file.
 
-**Note:** You can use the direct CSV from Radio Reference for talk groups, but setting priority is not supported with this file format.  If you need to use the Priority field, you'll need to reorder the CSV to match the format described below.
+**Note:** You can use the direct CSV from Radio Reference for talk groups. You will need to add the Priority column if you are going to be using that.
 
-You may add an additional column that adds a priority for each talkgroup. The priority field specifies the number of recorders the system must have available to record a new call for the talkgroup. For example, a priority of 1, the highest means as long as at least a single recorder is available, the system will record the new call. If the priority is 2, the system would at least 2 free recorders to record the new call, and so on. If there is no priority set for a talkgroup entry, a prioity of 1 is assumed.
+A Header row is required on the first line of the CSV file. The supported column names are: "Decimal", "Mode", "Description","Alpha Tag", "Hex", "Category", "Tag", "Priority", "Preferred NAC"
 
-Talkgroups assigned a priority of -1 will never be recorded, regardless of the number of available recorders.
+The first column must be the "Decimal" column.
 
-Trunk Recorder really only uses the priority information and the decimal talkgroup ID. The Website uses the same file though to help display information about each talkgroup.
+The columns are:
 
-Here are the column headers and some sample data: NOTE: If you are adding the Priority to a RR csv, as well as changing order you must use a heading for the first column other than "Decimal" eg DEC for TR to detect you are supplying this layout.
+| Column Name | Required | Value |
+|-------------|----------|-------|
+| Decimal     | ✔️        | The Talkgroup Number formatted as a decimal number. |
+| Mode        |  ✔️       | Mode defines the type of transmission broadcast on this talkgroup. Analog transmissions are standard voice, Digital and TDMA transmissions are digitally modulated. <br />A = Analog Talkgroup<br />D = Digital Talkgroup<br />M = Mixed Analog/Digital<br />T = TDMA Capable Talkgroup<br />--<br />A trailing lowercase e represents partial encryption. A trailing uppercase E represents full encryption. |
+| Description | ✔️        | The description of the talkgroup |
+| Alpha Tag |       | A 16 character description that is intended as a shortened display on radio displays |
+| Hex       |       | The Talkgroup Number formatted as a hex number. This value is currently not used. |
+| Category |    |  The category for the Talkgroup |
+| Tag       |   |  The Service Tag for the Talkgroup |
+| Priority |    | The priority field specifies the number of recorders the system must have available to record a new call for the talkgroup. For example, a priority of 1, the highest means as long as at least a single recorder is available, the system will record the new call. If the priority is 2, the system would at least 2 free recorders to record the new call, and so on. If there is no priority set for a talkgroup entry, a prioity of 1 is assumed. <br/> Talkgroups assigned a priority of -1 will never be recorded, regardless of the number of available recorders. |
+| Preferred NAC |     | In Multi-Site mode, the preferred NAC for a specific talk group is used to specify the site you prefer the talk group to be recorded from.|
+| Comment |        | Use this field to capture comments about a talkgroup. It will be ignored by Trunk Recorder. |
 
-| DEC | HEX | Mode | Alpha Tag    | Description    | Tag            | Group    | Priority | PreferredNAC (optional) |
+Here are the column headers and some sample data: 
+
+| Decimal | Hex | Mode | Alpha Tag    | Description    | Tag            | Category    | Priority | Preferred NAC |
 |-----|-----|------|--------------|----------------|----------------|----------|----------|-------------------------|
 |101  | 065 | D    | DCFD 01 Disp | 01 Dispatch    | Fire Dispatch  | Fire     | 1        | 1000                    |
 |2227 | 8b3 | D    | DC StcarYard | Streetcar Yard | Transportation | Services | 3        | 1001                    |
 
- In Multi-Site mode, the preferred NAC for a specific talk group is used to specify the site you prefer the talk group to be recorded from.
 
 ## channelFile
 
@@ -248,12 +450,25 @@ This file allows for you to specify additional information about conventional ch
 
 *Tone based squelch is currently not supported.*
 
+
+| Column Name | Required | Value |
+|-------------|----------|-------|
+| TG Number     | ✔️        | The Talkgroup Number formatted as a decimal number. This has to be the first column |
+| Frequency        |  ✔️       | The frequency in Hz for the channel |
+| Tone | ✔️        | The Tone for the talkgroup. This value is not used. *Tone based squelch is currently not supported.* |
+| Alpha Tag |       | A 16 character description that is intended as a shortened display on radio displays |
+| Category |    |  The category for the Talkgroup |
+| Tag       |   |  The Service Tag for the Talkgroup |
+| Comment |        | Use this field to capture comments about a talkgroup. It will be ignored by Trunk Recorder. |
+| Enable |        | Set to 'false' if you do not want this talkgroup/channel to created |
+
+
 The **Enable** Column is optional and defaults to *True*. It only needs to be added to rows that you do not want to have recorded. For those rows, set **Enable** to *False*.
 
-| TG Number | Frequency | Tone     | Alpha Tag     | Description            | Tag    | Group  | Enable (*optional*) |
+| TG Number | Frequency | Tone     | Alpha Tag     | Description            | Tag    | Category  | Enable (*optional*) |
 | --------- | --------- | -------- | ------------- | ---------------------- | ------ | ------ | ------------------- |
-| 300       | 462275000 | 94.8 PL  | Town A Police | Town A Police Dispatch | Police | Town A |                     |
-| 325       | 462275000 | 151.4 PL | Town B DPW    | Town B Trash Dispatch  | DPW    | Town B | False               |
+| 300       | 462275000 | 94.8  | Town A Police | Town A Police Dispatch | Police | Town A |                     |
+| 325       | 462275000 | 151.4 | Town B DPW    | Town B Trash Dispatch  | DPW    | Town B | False               |
 
 
 ## unitTagsFile

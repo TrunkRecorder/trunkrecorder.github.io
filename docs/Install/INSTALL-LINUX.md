@@ -11,6 +11,19 @@ This page covers installing Trunk Recorder on a Linux box. I test everything on 
 To get started, install all of the required packages. Instructions for different versions are below:
 
 
+### Ubuntu 23.04
+
+```bash
+sudo   apt-get install -y apt-transport-https build-essential ca-certificates fdkaac git gnupg gnuradio gnuradio-dev gr-osmosdr libuhd-dev libboost-all-dev libcurl4-openssl-dev libgmp-dev libhackrf-dev liborc-0.4-dev libpthread-stubs0-dev libssl-dev libuhd-dev libusb-dev pkg-config software-properties-common cmake libsndfile1-dev sox
+```
+
+If you are using a HackRF:
+
+```bash
+sudo apt install -y hackrf libhackrf-dev libhackrf0
+```
+
+
 ### Ubuntu 22.04
 
 ```bash
@@ -155,9 +168,9 @@ sudo apt-get install libuhd-dev uhd-host
 Download the firmware images. The location of the downloader is different than the error message:
 
 ```bash
-cd /lib/uhd/utils/
-sudo ./uhd_images_downloader.py
+dpkg -L uhd-host | grep "downloader"
 ```
+The run the downloader at the location identified.
 
 Setup the udev rules so any user can access the USB, as documented [here](https://files.ettus.com/manual/page_transport.html#transport_usb_udev):
 
