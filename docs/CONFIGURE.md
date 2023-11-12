@@ -2,6 +2,7 @@
 sidebar_label: 'Configure'
 sidebar_position: 3
 ---
+
 # Configuring Trunk Recorder
 
 It takes a little bit of work to correctly configure Trunk Recorder, but once you get everything working you will not have to touch it again.

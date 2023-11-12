@@ -1,7 +1,5 @@
 Use [Mermaid Live](https://mermaid.live/) to edit the charts.
 
-## Handling GRANT & UPDATE Messages
-
 ```mermaid
 flowchart TD
 A[Control Channel] -->|GRANT or UPDATE| B["handle_call_grant()"]
@@ -12,8 +10,6 @@ D -.->|Yes| E["call->update()"]
 D -.->|No| F[Do nothing.\n The Recorder will notice the \ndifferent Talkgroup and stop]
 G -.-> H["start_recording()"]
 ```
-
-## Handling Voice Channel Traffic
 
 ```mermaid
 flowchart TD
@@ -34,7 +30,7 @@ B1 -.->|TERMINATOR| H1["End Transmission"]
 H1 -.-> K1["state = IDLE"]
 ```
     
-## Managing Call Timeout
+
 
 
 ```mermaid

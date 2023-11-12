@@ -2,6 +2,7 @@
 sidebar_label: 'Raspberry Pi Install'
 sidebar_position: 3
 ---
+
 # Raspberry Pi / Debian
 
 Smaller radio systems can be covered using a Raspberry Pi. If you are interested in doing this, you should really get a Pi 4. It maybe possible to get things running on an older Pi, but you often get unexpect behavior and errors. A Pi 4 can handle 3-4 simulatanious recordings. Make sure you have a good power supply. Also pay attention to heat. If the Pi gets too hot, it will slow down. A good case or fan can help keep it going full tilt. You can also just run debian on a NUC or Miniform PC. These commands will work with a vaneilla debian install as well.
@@ -61,12 +62,17 @@ sudo nano /etc/apt/sources.list
 ```
 - and add this line to the end:
 ```
-deb http://www.deb-multimedia.org/ bullseye main non-free
+deb https://www.deb-multimedia.org bookworm main non-free
 ```
 - Download the keys for the apt source and install them:
 ```bash
 wget https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb
 sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb
+```
+- You can verify the package integrity with:
+```bash
+sha256sum deb-multimedia-keyring_2016.8.1_all.deb
+9faa6f6cba80aeb69c9bac139b74a3d61596d4486e2458c2c65efe9e21ff3c7d deb-multimedia-keyring_2016.8.1_all.deb
 ```
 - Update the OS:
 ```

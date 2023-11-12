@@ -192,3 +192,4 @@ The matching simplestream config to send audio from talkgroup 58918 to TCP port 
 * [MQTT Statistics](https://github.com/robotastic/trunk-recorder-mqtt-statistics): Publishes statistics about a Trunk Recorder instance over MQTT
 * [Decode rates logger](https://github.com/rosecitytransit/trunk-recorder-decode-rate): Logs trunking control channel decode rates to a CSV file, and includes a PHP file that outputs an SVG graph
 * [Daily call log and live Web page](https://github.com/rosecitytransit/trunk-recorder-daily-log): Creates a daily log of calls (instead of just individual JSON files) and includes an updating PHP Web page w/audio player
+* [Prometheus exporter](https://github.com/USA-RedDragon/trunk-recorder-prometheus): Publishes statistics to a metrics endpoint via HTTP
