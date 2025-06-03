@@ -10,7 +10,7 @@ Smaller radio systems can be covered using a Raspberry Pi. If you are interested
 ## RaspberryOS (aka Raspbian)
 
 ### Setup Raspbian
-This is a [good guide](https://desertbot.io/blog/headless-raspberry-pi-4-ssh-wifi-setup) on how to setup a Raspberry Pi in headless mode. This means that you do not have to attach a monitor, keyboard or mouse to it to get it working. The steps below are pulled from this guide.
+This is a [good guide](https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html) on how to setup a Raspberry Pi in headless mode. This means that you do not have to attach a monitor, keyboard or mouse to it to get it working. The steps below are pulled from this guide.
 
 #### Download and burn the image
 
@@ -21,7 +21,7 @@ The first step is to put the Raspberry Pi OS onto a MicroSD card. You will need 
 
 #### Setup for headless boot
 
-After the OS has been written to MicroSD card, we need to change a few files so that the Pi can get on Wifi and also allow for SSH connections. See the [guide](https://desertbot.io/blog/headless-raspberry-pi-4-ssh-wifi-setup) for how to do it using Windows.
+After the OS has been written to MicroSD card, we need to change a few files so that the Pi can get on Wifi and also allow for SSH connections. See the [guide](https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html) for how to do it using Windows.
 
 - **On a Mac** `touch /Volumes/boot/ssh`
 - Next, add the WiFi info
@@ -66,13 +66,13 @@ deb https://www.deb-multimedia.org bookworm main non-free
 ```
 - Download the keys for the apt source and install them:
 ```bash
-wget https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb
-sudo dpkg -i deb-multimedia-keyring_2016.8.1_all.deb
+wget https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2024.9.1_all.deb
+sudo dpkg -i deb-multimedia-keyring_2024.9.1_all.deb
 ```
 - You can verify the package integrity with:
 ```bash
-sha256sum deb-multimedia-keyring_2016.8.1_all.deb
-9faa6f6cba80aeb69c9bac139b74a3d61596d4486e2458c2c65efe9e21ff3c7d deb-multimedia-keyring_2016.8.1_all.deb
+sha256sum deb-multimedia-keyring_2024.9.1_all.deb
+9faa6f6cba80aeb69c9bac139b74a3d61596d4486e2458c2c65efe9e21ff3c7d deb-multimedia-keyring_2024.9.1_all.deb
 ```
 - Update the OS:
 ```
@@ -84,7 +84,13 @@ sudo apt upgrade
 sudo apt -y install libssl-dev openssl curl git fdkaac sox libcurl3-gnutls libcurl4 libcurl4-openssl-dev gnuradio gnuradio-dev gr-osmosdr libhackrf-dev libuhd-dev cmake make build-essential libboost-all-dev libusb-1.0-0-dev libsndfile1-dev
 ```
 
-Configure RTL-SDRs to load correctly:
+- Remove xtra-dkms.
+DKMS is not needed on the Raspberry Pi platform, and just causes issues. The above command actually returns an error on Raspberry Pi OS. So we remove that module from our build so we do not get errors from subsaquent `apt` calls.
+```bash
+sudo apt remove xtrx-dkms
+```
+
+## Configure RTL-SDRs to load correctly:
 
 ```bash
 sudo wget https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules ~/rtl-sdr.rules
@@ -97,7 +103,55 @@ You will need to restart for the rules to take effect. Logging out and logging b
 sudo shutdown -r now
 ```
 
-Now go [Build](#build-trunk-recorder) Trunk Recorder!
+## Configuring the UHD for Ettus SDRs
+
+If you haven't setup UHD yet there are a few extra steps you need to take:
+
+Install the UHD drivers:
+
+```bash
+sudo apt-get install libuhd-dev uhd-host
+```
+
+Download the firmware images. The location of the downloader is different than the error message:
+
+```bash
+dpkg -L uhd-host | grep "downloader"
+```
+The run the downloader at the location identified, it should be something like this:
+
+```bash
+sudo python3 /usr/libexec/uhd/utils/uhd_images_downloader.py
+```
+
+Setup the udev rules so any user can access the USB, as documented [here](https://files.ettus.com/manual/page_transport.html#transport_usb_udev):
+
+```bash
+cd /usr/libexec/uhd/utils/
+sudo cp uhd-usrp.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+## Building Trunk Recorder
+
+In order to keep your copy of the Trunk Recorder source code free of build artifacts created by the build process, it is suggested to create a separate "out-of-tree" build directory. We will use `trunk-build` as our build directory. We by default do this in our home directory (`~` - Is a shortcut back to home.).
+
+**Note:** Depending on the ammount of RAM in your Raspberry Pi, it may be best to run `make -j1` (2GB), `make -j3` (4GB), and `make -j4` (8GB) in order to ensure that you do not run out of RAM, at the cost of making the compile process take longer. If you ran out of RAM the compile process will fail competely, so it can be an acceptable tradeoff.
+
+```bash
+cd ~
+mkdir trunk-build
+git clone https://github.com/robotastic/trunk-recorder.git
+cd trunk-build
+cmake ../trunk-recorder
+make -j1
+sudo make install
+```
+
+## Configuring Trunk Recorder
+
+The next step is to [configure Trunk Recorder](../CONFIGURE.md) for the system you are trying to capture.
 
 ***
 # Ubuntu 22.04 Server (64-bit support!)
