@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://TrunkRecorder.github.io/blog</id>
     <title>Trunk Recorder Blog</title>
-    <updated>2023-11-13T03:04:27.000Z</updated>
+    <updated>2025-09-17T02:34:53.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://TrunkRecorder.github.io/blog"/>
     <subtitle>Trunk Recorder Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Welcome to Better Docs]]></title>
         <id>https://TrunkRecorder.github.io/blog/welcome-to-better-living</id>
         <link href="https://TrunkRecorder.github.io/blog/welcome-to-better-living"/>
-        <updated>2023-11-13T03:04:27.000Z</updated>
+        <updated>2025-09-17T02:34:53.000Z</updated>
         <summary type="html"><![CDATA[An intro to the new site]]></summary>
         <content type="html"><![CDATA[<p>Hopefully this site makes the Docs for Trunk Recorder a little more readable, and findable.</p><p>To get started, I just lifted and shifted the docs from the GitHub repo. I want to spend some time going through them though and trying to make them a little easier to read.</p><p>Of course, who knows when I will get around to that. I easily get distracted! Pull Request are always welcome though to help improve the docs...</p>]]></content>
         <author>
