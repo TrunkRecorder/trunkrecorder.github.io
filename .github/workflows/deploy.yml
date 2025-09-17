@@ -11,6 +11,8 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -28,7 +30,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
           # The following lines assign commit authorship to the official
