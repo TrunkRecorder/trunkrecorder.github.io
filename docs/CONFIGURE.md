@@ -41,7 +41,7 @@ Center Frequency Calculators:
 Configuration File:
 - https://www.radioetcetera.site/trunk-recorder-config-editor/ - tool for using a GUI to create config.json files
 - https://github.com/AlertPageSDR/tr_configurator - If you have a Radio Reference Premium account, you can use this tool to automatically generate a config.json based on the RR data for a given system (or systems)
-- https://github.com/robotastic/trunk-recorder-configs - example configurations for different systems
+- https://github.com/TrunkRecorder/trunk-recorder-configs - example configurations for different systems
 
 ### Gain
 
@@ -229,11 +229,10 @@ There is a list of available Plugins [here](./Plugins.md).
 | compressWav            |          | true                       | bool                                                                         | Convert the recorded .wav file to an .m4a file. **This is required for both OpenMHz and Broadcastify!** The `sox` and `fdkaac` packages need to be installed for this command to work. |
 | unitScript             |          |                            | string                                                                       | The filename of a script that runs when a radio (unit) registers (is turned on), affiliates (joins a talk group), deregisters (is turned off), gets an acknowledgment response, transmits, gets a data channel grant, a unit-unit answer request or a Location Registration Response. Passed as parameters:  `shortName radioID on\|join\|off\|ackresp\|call\|data\|ans_req\|location`. On joins and transmissions, `talkgroup` is passed as a fourth parameter; on answer requests, the `source` is.  On joins and transmissions, `patchedTalkgroups`  (comma separated list of talkgroup IDs) is passed as a fifth parameter if the talkgroup is part of a patch on the system. See *examples/unit-script.sh* for a logging example. Note that for paths relative to trunk-recorder, this should start with `./`( or `../`). |
 | audioArchive           |          | true                       | **true** / **false**                                                         | Should the recorded audio files be kept after successfully uploading them? |
-| conversationMode       |          | true                       | **true** / **false**                                                         | Should individual transmissions that are within *timeout* of each other, be grouped together into a single call. |
 | transmissionArchive    |          | false                      | **true** / **false**                                                         | Should each of the individual transmission be kept? These transmission are combined together with other recent ones to form a single call. |
 | callLog                |          | true                       | **true** / **false**                                                         | Should a json file with the call details be kept after successful uploads? |
 | analogLevels           |          | 8                          | number (1-32)                                                                | The amount of amplification that will be applied to the analog audio. |
-| maxDev                 |          | 4000                       | number                                                                       | The maximum deviation for analog channels. If you analog recordings sound good or if you have a completely digital system, then there is no need to touch this. |
+| maxDev                 |          | 5000                       | number                                                                       | The maximum deviation for analog channels. If you analog recordings sound good or if you have a completely digital system, then there is no need to touch this. |
 | digitalLevels          |          | 1                          | number (1-16)                                                                | The amount of amplification that will be applied to the digital audio. |
 | unitTagsFile           |          |                            | string                                                                       | The filename of a CSV file that provides information about the unit tags. The format for the file is described below. |
 | recordUnknown          |          | true                       | **true** / **false**                                                         | Record talkgroups if they are not listed in the Talkgroups File. |
@@ -279,14 +278,14 @@ By default, Trunk Recorder will record the call from the first site to receive t
         {
             "type": "P25",
             ...
-            "multiSite": "true",
+            "multiSite": true,
             "multiSiteSystemName": "somesharedname",
             "multiSiteSystemNumber": 1
         },
         {
             "type": "P25",
             ...
-            "multiSite": "true",
+            "multiSite": true,
             "multiSiteSystemName": "somesharedname",
             "multiSiteSystemNumber": 2
         }
@@ -487,7 +486,6 @@ The columns are:
 | Tag       |   |  The Service Tag for the Talkgroup |
 | Priority |    | The priority field specifies the number of recorders the system must have available to record a new call for the talkgroup. For example, a priority of 1, the highest means as long as at least a single recorder is available, the system will record the new call. If the priority is 2, the system would at least 2 free recorders to record the new call, and so on. If there is no priority set for a talkgroup entry, a prioity of 1 is assumed. <br/> Talkgroups assigned a priority of -1 will never be recorded, regardless of the number of available recorders. |
 | Preferred NAC |     | In Multi-Site mode, the preferred NAC (`nnnn`, e.g. `1234`), RFSS/SiteID (`RRRRssss`, e.g. `00010023`), or multiSiteSystemNumber to record a specific talkgroup.|
-| Conversation Mode |      | Allows for Conversation Mode to be set at the Talkgroup level. This is helpful if you have a busy dispatch channel and want to break it up. This value can be set on only few rows, the rest will default to the System level value. The allowed values are `true` and `false`. |
 | Comment |        | Use this field to capture comments about a talkgroup. It will be ignored by Trunk Recorder. |
 
 Here are the column headers and some sample data: 
