@@ -9,7 +9,8 @@ It takes a little bit of work to correctly configure Trunk Recorder, but once yo
 
 ## Research
 
-Before you can start entering values, you will need to do a little research about the radio system you are trying to capture and the correct parameters for receiving it. [Radio Reference](http://www.radioreference.com/apps/db/?coid=1) is a great place to learn about a radio system. Search for your location and then select the system you are trying to record. Take note of the frequencies that the system uses. You will want to make sure you can cover the range of frequencies used with one or more SDRs. Also look at the System Type, which tells you if it is a Trunked system and what type it is. For Trunked systems, you will need to write down the control channels, and alternate control channels.
+Before you can start entering values, you will need to do a little research about the radio system you are trying to capture and the correct parameters for receiving it. [Radio Reference](http://www.radioreference.com/apps/db/?coid=1) is a great place to learn about a radio system. Search for your location and then select the system you are trying to record. Take note of the frequencies that the system uses. You will want to make sure you can cover the range of frequencies used with one or more SDRs. Also look at the System Type, which tells you if it is a Trunked system and what type it is. For Trunked systems, you will need to take note of the control channels, and alternate control channels.
+
 
 ### Frequency
 
@@ -31,7 +32,16 @@ The amount of tuning error is -14500Hz, so that would go under **error:** for th
 
 **NOTE:** In some instances, an alternative is to use `ppm` correction rather than the `error` configuration option.
 
-Alternatively, you can use these tools here: https://webby.site/sdr/ or  http://garvas.org/trunk-recorder/ to obtain RTL-SDR dongle/array configurations.
+
+### Helpful Tools
+Center Frequency Calculators:
+- http://alertapi.alertpage.net/sdr - Paste the frequencies from Radio Reference into this website and it will automatically calculate what center frequency you should use and how many dongles you will need. We recommend a sample rate value around 2.4 MHz for an RTL-SDR, as most can be pushed that high without stability issues.
+- https://radioetcetera.site/sdr-parameter-calculator/ - like the above, but a little more configurable.
+
+Configuration File:
+- https://www.radioetcetera.site/trunk-recorder-config-editor/ - tool for using a GUI to create config.json files
+- https://github.com/AlertPageSDR/tr_configurator - If you have a Radio Reference Premium account, you can use this tool to automatically generate a config.json based on the RR data for a given system (or systems)
+- https://github.com/robotastic/trunk-recorder-configs - example configurations for different systems
 
 ### Gain
 
@@ -106,7 +116,7 @@ Here is a map of the different sections of the *config.json* file:
 
 There is a list of available Plugins [here](./Plugins.md).
 
-### Global Configs
+## Global Configs
 
 
 | Key                          | Required | Default Value                                    | Type                                                         | Description                                                  |
@@ -125,6 +135,7 @@ There is a list of available Plugins [here](./Plugins.md).
 | consoleLog                   |          | true                                             | **true** / **false**                                         | Send logging output to the console                           |
 | logFile                      |          | false                                            | **true** / **false**                                         | Send logging output to a file                                |
 | logDir                       |          | logs/                                            | string                                                       | Where the output logs should be put                          |
+| logColor                     |          | "console" (*or* "none" if `NO_COLOR` env set)    | **"all"**, **"console"**, **"logfile"**, **"none"**          | Control the output of ANSI color in the console or logfiles. The presence of the [`NO_COLOR` env variable](https://no-color.org) will modify the default if set (`export NO_COLOR=1`). |
 | frequencyFormat              |          | "exp"                                            | **"exp" "mhz"** or **"hz"**                                  | the display format for frequencies to display in the console and log file. |
 | controlWarnRate              |          | 10                                               | number                                                       | Log the control channel decode rate when it falls bellow this threshold. The value of *-1* will always log the decode rate. |
 | controlRetuneLimit           |          | 0                                                | number                                                       | Number of times to attempt to retune to a different control channel when there's no signal. *0* means unlimited attemps. The counter is reset when a signal is found. Should be at least equal to the number of channels defined in order for all to be attempted. |
@@ -138,21 +149,24 @@ There is a list of available Plugins [here](./Plugins.md).
 | audioStreaming               |          | false                                            | **true** / **false**                                         | Whether or not to enable the audio streaming callbacks for plugins. |
 | newCallFromUpdate            |          | true                                             | **true** / **false**                                         | Allow for UPDATE trunking messages to start a new Call, in addition to GRANT messages. This may result in more Calls with no transmisions, and use more Recorders. The flipside is that it may catch parts of a Call that would have otherwise been missed. Turn this off if you are running out of Recorders. |
 | softVocoder                  |          | false                                            | **true** / **false**                                         | Use the Software Decode vocoder from OP25 for Phase 1 audio. Give it a try if you are hearing weird tones in your audio. Whether it makes your audio sound better or worse is a matter of preference. |
+| recordUUVCalls               |          | true                                             | **true** / **false**                                         | *P25 only* Record Unit to Unit Voice calls.        |
 
 
+## Source Object
 
-#### Source Object
+### USRP or OSMOSDR Sources
 
 | Key              | Required | Default Value | Type                        | Description                                                  |
 | :--------------- | :------: | :-----------: | --------------------------- | ------------------------------------------------------------ |
+| driver           |    ✓     |               | **"usrp"**,  **"osmosdr"** | The GNURadio block you wish to use for the SDR.              |
+| device           |          |               | **string**<br /> See the [osmosdr page](http://sdr.osmocom.org/trac/wiki/GrOsmoSDR) for supported devices and parameters. | Osmosdr device name and possibly serial number or index of the device. <br /> You only need to do add this key if there are more than one osmosdr devices being used.<br /> Example: `bladerf=00001` for BladeRF with serial 00001 or `rtl=00923838` for RTL-SDR with serial 00923838, just `airspy` for an airspy.<br />It seems that when you have 5 or more RTLSDRs on one system you need to decrease the buffer size. I think it has something to do with the driver. Try adding buflen: `"device": "rtl=serial_num,buflen=65536"`, there should be no space between the comma and `buflen`. |
 | center           |    ✓     |               | number                      | The center frequency in Hz to tune the SDR to                |
 | rate             |    ✓     |               | number                      | The sampling rate to set the SDR to, in samples / second     |
 | error            |          |       0       | number                      | The tuning error for the SDR, in Hz. This is the difference between the target value and the actual value. So if you wanted to recv 856MHz but you had to tune your SDR to 855MHz (when set to 0ppm)  to actually receive it, you would set this to -1000000. You should also probably get a new SDR if it is off by this much. |
 | gain             |    ✓     |               | number                      | The RF gain setting for the SDR. Use a program like GQRX to find a good value. |
 | digitalRecorders |          |               | number                      | The number of Digital Recorders to have attached to this source. This is essentially the number of simultaneous calls you can record at the same time in the frequency range that this Source will be tuned to. It is limited by the CPU power of the machine. Some experimentation might be needed to find the appropriate number. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
 | analogRecorders  |          |               | number                      | The number of Analog Recorder to have attached to this source. The same as Digital Recorders except for Analog Voice channels. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
-| driver           |    ✓     |               | **"usrp"** or **"osmosdr"** | The GNURadio block you wish to use for the SDR.              |
-| device           |          |               | **string**<br /> See the [osmosdr page](http://sdr.osmocom.org/trac/wiki/GrOsmoSDR) for supported devices and parameters. | Osmosdr device name and possibly serial number or index of the device. <br /> You only need to do add this key if there are more than one osmosdr devices being used.<br /> Example: `bladerf=00001` for BladeRF with serial 00001 or `rtl=00923838` for RTL-SDR with serial 00923838, just `airspy` for an airspy.<br />It seems that when you have 5 or more RTLSDRs on one system you need to decrease the buffer size. I think it has something to do with the driver. Try adding buflen: `"device": "rtl=serial_num,buflen=65536"`, there should be no space between the comma and `buflen`. |
+| signalDetectorThreshold |       |           | number                      | If set, a static threshold will be used for the Signal Detector on all conventional recorder. Otherwise, the threshold value for the noise floor will be automatically be determined. Only set this is you are having problems. The value is in dB, but is generally higher than the Squelch value because the power is measured differently |
 | ppm              |          |       0       | number                      | The tuning error for the SDR in ppm (parts per million), as an alternative to `error` above. Use a program like GQRX to find an accurate value. |
 | agc              |          |     false     | **true** / **false**        | Whether or not to enable the SDR's automatic gain control (if supported). This is false by default. It is not recommended to set this as it often yields worse performance compared to a manual gain setting. |
 | gainSettings     |          |               | { "stageName": value}       | Set the gain for any stage. The value for this setting should be passed as an object, where the key specifies the name of the gain stage and the value is the amount of gain, as an int. For example:<br /> ````"gainSettings": { "IF": 10, "BB": 11},```` |
@@ -165,13 +179,42 @@ There is a list of available Plugins [here](./Plugins.md).
 | antenna          |          |               | string, e.g.: **"TX/RX"**   | *usrp only* selects which antenna jack to use                |
 | enabled          |          |     true      | **true** / **false**        | control whether a configured source is enabled or disabled   |
 
+***
+### SigMF Sources
 
-#### System Object
+| Key              | Required | Default Value | Type                        | Description                                                  |
+| :--------------- | :------: | :-----------: | --------------------------- | ------------------------------------------------------------ |
+| driver           |    ✓     |               | **"sigmffile"**| Specify that you wish to use a SigMF based source block              |
+| sigmfMeta          |    ✓     |               | string                      | Path and filename for the SigMF metadata File                            |
+| sigmfData          |    ✓     |               | string                      | Path and filename for the SigMF data File                            |
+| repeat           |          |     false     | **true** / **false**        | whether to repeat playback of the IQ file when it reaches the end |
+| digitalRecorders |          |               | number                      | The number of Digital Recorders to have attached to this source. This is essentially the number of simultaneous calls you can record at the same time in the frequency range that this Source will be tuned to. It is limited by the CPU power of the machine. Some experimentation might be needed to find the appropriate number. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
+| analogRecorders  |          |               | number                      | The number of Analog Recorder to have attached to this source. The same as Digital Recorders except for Analog Voice channels. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
+| enabled          |          |     true      | **true** / **false**        | control whether a configured source is enabled or disabled   |
+
+***
+
+### IQ File Sources
+
+| Key              | Required | Default Value | Type                        | Description                                                  |
+| :--------------- | :------: | :-----------: | --------------------------- | ------------------------------------------------------------ |
+| driver           |    ✓     |               | **"iqfile"**| Specify that you wish to use an IQ File based source block              |
+| iqfile           |    ✓     |               | string                      | Path and filename for the IQ File                            |
+| repeat           |          |     false     | **true** / **false**        | whether to repeat playback of the IQ file when it reaches the end |
+| center           |    ✓     |               | number                      | The center frequency in Hz to tune the SDR to                |
+| rate             |    ✓     |               | number                      | The sampling rate to set the SDR to, in samples / second     |
+| digitalRecorders |          |               | number                      | The number of Digital Recorders to have attached to this source. This is essentially the number of simultaneous calls you can record at the same time in the frequency range that this Source will be tuned to. It is limited by the CPU power of the machine. Some experimentation might be needed to find the appropriate number. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
+| analogRecorders  |          |               | number                      | The number of Analog Recorder to have attached to this source. The same as Digital Recorders except for Analog Voice channels. *This is only required for Trunk systems. Channels in Conventional systems have dedicated recorders and do not need to be included here.* |
+| enabled          |          |     true      | **true** / **false**        | control whether a configured source is enabled or disabled   |
+
+
+
+## System Object
 
 | Key                    | Required | Default Value              | Type                                                                         | Description                                                  |
 | ---------------------- | :------: | -------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | shortName              |    ✓     |                            | string                                                                       | This is a nickname for the system. It is used to help name and organize the recordings from this system. It should be 4-6 letters with no spaces. |
-| type                   |    ✓     |                            | **"smartnet"**, **"p25"**, **"conventional"**, **"conventionalDMR"** or **"conventionalP25"** | The type of radio system.                                    |
+| type                   |    ✓     |                            | **"smartnet"**, **"p25"**, **"conventional"**, **"conventionalDMR"** or **"conventionalP25"**, **"conventionalSIGMF"** | The type of radio system.                                    |
 | control_channels       |    ✓     |                            | array of numbers;<br />[496537500, 496437500]                                | *For trunked systems* The control channel frequencies for the system, in Hz. The frequencies will automatically be cycled through if the system moves to an alternate channel. |
 | channels               |    ✓     |                            | array of numbers;<br />[166725000, 166925000, 167075000, 166850000]          | *For conventional systems*  The channel frequencies, in Hz, used for the system. The channels get assigned a virtual talkgroup number based upon their position in the array. Squelch levels need to be specified for the Source(s) being used. |
 | channelFile            |    ✓     |                            | string                                                                       | *For conventional systems* The filename for a CSV file that provides information about the conventional channels. The format for the file is described below. Squelch levels need to be specified for the Source(s) being used. *Use channels or channelFile, not both*. |
@@ -179,12 +222,14 @@ There is a list of available Plugins [here](./Plugins.md).
 | squelch                |          | -160                       | number                                                                       | Squelch in DB, this needs to be set for all conventional systems. The squelch setting is also used for analog talkgroups in a SmartNet system. I generally use -60 for my rtl-sdr. The closer the squelch is to 0, the stronger the signal has to be to unmute it. |
 | talkgroupsFile         |          |                            | string                                                                       | The filename for a CSV file that provides information about the talkgroups. It determines whether a talkgroup is analog or digital, and what priority it should have. This file should be located in the same directory as the trunk-recorder executable. |
 | apiKey                 |          |                            | string                                                                       | *if uploadServer is set* System-specific API key for uploading calls to OpenMHz.com. See the Config tab for your system in OpenMHz to find what the value should be. |
+| openmhzSystemId        |          | `shortName`                | string                                                                       | *if uploadServer is set* By default, the plugin will upload calls to the `shortName` OpenMHz system.  Setting this value will allow uploads to any specific OpenMHz system with its valid API key.  This is useful in a multi-site setup where multiple trunk-recorder systems may be aggregating calls to the same OpenMHz feed. | 
 | broadcastifyApiKey     |          |                            | string                                                                       | *if broadcastifyCallsServer is set* System-specific API key for Broadcastify Calls |
 | broadcastifySystemId   |          |                            | number                                                                       | *if broadcastifyCallsServer is set* System ID for Broadcastify Calls <br />(this is an integer, and different from the RadioReference system ID) |
 | uploadScript           |          |                            | string                                                                       | The filename of a script that is called after each recording has finished. Checkout *encode-upload.sh.sample* as an example. Should probably start with `./` ( or `../`). |
 | compressWav            |          | true                       | bool                                                                         | Convert the recorded .wav file to an .m4a file. **This is required for both OpenMHz and Broadcastify!** The `sox` and `fdkaac` packages need to be installed for this command to work. |
 | unitScript             |          |                            | string                                                                       | The filename of a script that runs when a radio (unit) registers (is turned on), affiliates (joins a talk group), deregisters (is turned off), gets an acknowledgment response, transmits, gets a data channel grant, a unit-unit answer request or a Location Registration Response. Passed as parameters:  `shortName radioID on\|join\|off\|ackresp\|call\|data\|ans_req\|location`. On joins and transmissions, `talkgroup` is passed as a fourth parameter; on answer requests, the `source` is.  On joins and transmissions, `patchedTalkgroups`  (comma separated list of talkgroup IDs) is passed as a fifth parameter if the talkgroup is part of a patch on the system. See *examples/unit-script.sh* for a logging example. Note that for paths relative to trunk-recorder, this should start with `./`( or `../`). |
 | audioArchive           |          | true                       | **true** / **false**                                                         | Should the recorded audio files be kept after successfully uploading them? |
+| conversationMode       |          | true                       | **true** / **false**                                                         | Should individual transmissions that are within *timeout* of each other, be grouped together into a single call. |
 | transmissionArchive    |          | false                      | **true** / **false**                                                         | Should each of the individual transmission be kept? These transmission are combined together with other recent ones to form a single call. |
 | callLog                |          | true                       | **true** / **false**                                                         | Should a json file with the call details be kept after successful uploads? |
 | analogLevels           |          | 8                          | number (1-32)                                                                | The amount of amplification that will be applied to the analog audio. |
@@ -192,7 +237,6 @@ There is a list of available Plugins [here](./Plugins.md).
 | digitalLevels          |          | 1                          | number (1-16)                                                                | The amount of amplification that will be applied to the digital audio. |
 | unitTagsFile           |          |                            | string                                                                       | The filename of a CSV file that provides information about the unit tags. The format for the file is described below. |
 | recordUnknown          |          | true                       | **true** / **false**                                                         | Record talkgroups if they are not listed in the Talkgroups File. |
-| recordUUVCalls         |          | true                       | **true** / **false**                                                         | *P25 only* Record Unit to Unit Voice calls.        |
 | hideEncrypted          |          | false                      | **true** / **false**                                                         | Hide encrypted talkgroups log entries                        |
 | hideUnknownTalkgroups  |          | false                      | **true** / **false**                                                         | Hide unknown talkgroups log entries                          |
 | minDuration            |          | 0<br />(which is disabled) | number                                                                       | The minimum call duration in seconds (decimals allowed), calls below this number will have recordings deleted and will not be uploaded. |
@@ -204,13 +248,17 @@ There is a list of available Plugins [here](./Plugins.md).
 | bandplanHigh           |          |                            | number                                                                       | *SmartNet, 400_custom only* The highest channel in the system, specified in Hz. |
 | bandplanSpacing        |          |                            | number                                                                       | *SmartNet, 400_custom only* The channel spacing, specified in Hz. Typically this is *25000*. |
 | bandplanOffset         |          |                            | number                                                                       | *SmartNet, 400_custom only* The offset used to calculate frequencies. |
+| customFrequencyTableFile|         |                            | string                                                                       | *P25 only* The filename for a CSV file that provides information about the P25 custom frequency tables. The format for the file is described below. |
 | decodeMDC              |          | false                      | **true** / **false**                                                         | *Conventional systems only* enable the MDC-1200 signaling decoder. |
 | decodeFSync            |          | false                      | **true** / **false**                                                         | *Conventional systems only* enable the Fleet Sync signaling decoder. |
 | decodeStar             |          | false                      | **true** / **false**                                                         | *Conventional systems only* enable the Star signaling decoder. |
 | decodeTPS              |          | false                      | **true** / **false**                                                         | *Conventional systems only* enable the Motorola Tactical Public Safety (aka FDNY Fireground) signaling decoder. |
+| deemphasisTau              |          | 0.000750                      | number                                                        | *Conventional systems only* configure the de-emphasis time constant. 750µs for NFM (default), 75µs for WFM North America, 50µs for WFM most other regions.   |
 | enabled                |          | true                       | **true** / **false**                                                         | control whether a configured system is enabled or disabled                 |
 
-#### System Object - Experimental Options
+***
+
+### System Object - Experimental Options
 
 | Key                    | Required | Default Value | Type                 | Description                                                                       |
 | ---------------------- | :------: | --------------| ---------------------| --------------------------------------------------------------------------------- |
@@ -220,11 +268,9 @@ There is a list of available Plugins [here](./Plugins.md).
 
 When enabled, Multi-Site mode attempts to avoid recording duplicate calls by detecting simulcasted transmissions for the same talkgroup across multiple sites at the same time.
 
-For P25, Trunk Recorder will match calls that have the same WACN and same talkgroup number but a different NAC. For SmartNet, Trunk Recorder will match calls that have the same multiSiteSystemName and same talkgroup number but different multiSiteSystemNumber.
+For P25, Trunk Recorder will match calls that have the same WACN and talkgroup number but a different RFSS/SiteID. For SmartNet, Trunk Recorder will match calls that have the same multiSiteSystemName and same talkgroup number but different multiSiteSystemNumber.
 
-By default, Trunk Recorder will record the call from the first site to receive the grant and ignore the duplicate grants from the other related sites. If you want to specify the preferred site for a given talkgroup number you can specify the preferred NAC (in decimal format) in the [talkgroupsFile](#talkgroupsFile).
-
-Note: While multiSiteSystemName and multiSiteSystemNumber are normally used for SmartNet systems, these settings may also be used to override the default de-duplication logic for P25 systems where the mutliSite feature may not be correctly detecting duplicates. An example would be when two or more sites within a P25 system are using the same NAC and WACN. In such a deployment as a workaround, for each related system object, set multiSiteSystemName to a shared value and multiSiteSystemNumber to a unique value:
+By default, Trunk Recorder will record the call from the first site to receive the grant and ignore the duplicate grants from the other related sites. If you want to specify the preferred site for a given talkgroup number you can add a preferred NAC (in decimal format), RFSS/SiteID (`RRRRssss`, e.g. `00010026`), or multiSiteSystemNumber to the [talkgroupsFile](#talkgroupsFile).
 
 ```
 {
@@ -249,7 +295,7 @@ Note: While multiSiteSystemName and multiSiteSystemNumber are normally used for 
 }
 ```
 
-#### Plugin Object
+## Plugin Object
 
 | Key     | Required | Default Value | Type                 | Description                                                  |
 | ------- | :------: | ------------- | -------------------- | ------------------------------------------------------------ |
@@ -299,13 +345,13 @@ This plugin makes it easy to connect Trunk Recorder with [Rdio Scanner](https://
 **Name:** simplestream
 **Library:** libsimplestream.so
 
-This plugin streams uncompressed audio (16 bit Int, 8 kHz, mono) to UDP or TCP ports in real time as it is being recorded by trunk-recorder.  It can be configured to stream audio from all talkgroups and systems being recorded or only specified talkgroups and systems.  TGID information can be prepended to the audio data to allow the receiving program to take action based on the TGID.  Audio from different Systems should be streamed to different UDP/TCP ports to prevent crosstalk and interleaved audio from talkgroups with the same TGID on different systems.
+This plugin streams uncompressed audio (16 bit Int, 8 or 16 kHz, mono) to UDP or TCP ports in real time as it is being recorded by trunk-recorder.  It can be configured to stream audio from all talkgroups and systems being recorded or only specified talkgroups and systems.  TGID information can be prepended to the audio data to allow the receiving program to take action based on the TGID.  Audio from different Systems should be streamed to different UDP/TCP ports to prevent crosstalk and interleaved audio from talkgroups with the same TGID on different systems.
 
 This plugin does not, by itself, stream audio to any online services.  Because it sends uncompressed PCM audio, it is not bandwidth efficient and is intended mostly to send audio to other programs running on the same computer as trunk-recorder or to other computers on the LAN.  The programs receiving PCM audio from this plugin may play it on speakers, compress it and stream it to an online service, etc.
 
 **NOTE 1: In order for this plugin to work, the audioStreaming option in the Global Configs section (see above) must be set to true.**
 
-**NOTE 2: trunk-recorder passes analog audio to this plugin at 16 kHz sample rate and digital audio at 8 kHz sample rate.  Since the audio data being streamed doesn't contain the sample rate, analog and digital audio should be configured to be sent to different ports to receivers that are matched to the same sample rate.**
+**NOTE 2: trunk-recorder passes analog audio to this plugin at 16 kHz sample rate and digital audio at 8 kHz sample rate.  JSON metadata (if enabled) will contain the sample rate of the audio being sent.**
 
 | Key     | Required | Default Value | Type   | Description                                                  |
 | ------- | :------: | ------------- | ------ | ------------------------------------------------------------ |
@@ -318,8 +364,11 @@ This plugin does not, by itself, stream audio to any online services.  Because i
 | address   |    ✓     |               | string               | IP address to send this audio stream to.  Use "127.0.0.1" to send to the same computer that trunk-recorder is running on. |
 | port      |    ✓     |               | number               | UDP or TCP port that this stream will send audio to.         |
 | TGID      |    ✓     |               | number               | Audio from this Talkgroup ID will be sent on this stream.  Set to 0 to stream all recorded talkgroups. |
-| sendTGID  |          |     false     | **true** / **false** | When set to true, the TGID will be prepended in long integer format (4 bytes, little endian) to the audio data each time a packet is sent. |
-| shortName |          |               | string               | shortName of the System that audio should be streamed for.  This should match the shortName of a system that is defined in the main section of the config file.  When omitted, all Systems will be streamed to the address and port configured.  If TGIDs from Systems overlap, each system must be sent to a different port to prevent interleaved audio for talkgroups from different Systems with the same TGID.
+| sendJSON  |          |     false     | **true** / **false** | When set to true, JSON metadata will be prepended to the audio data each time a packet is sent.  JSON fields are talkgroup, patched_talkgroups, src, src_tag, freq, audio_sample_rate, short_name, event (set to "audio").  The length of the JSON metadata is prepended to the metadata in long integer format (4 bytes, little endian). If this is set to **true**, the sendTGID field will be ignored. |
+| sendCallStart |      | false         | **true** / **false** | Only used if sendJSON is set to **true**.  When set to true, a JSON message will be sent at the start of each call that includes the following JSON fields: talkgroup, talkgroup_tag, patched_talkgroups, patched_talkgroup_tags, src, src_tag, freq, short_name, event (set to "call_start").  The length of the JSON metadata is prepended to the metadata in long integer format (4 bytes, little endian).
+| sendCallEnd |      | false         | **true** / **false** | Only used if sendJSON is set to **true**.  When set to true, a JSON message will be sent at the end of each call that includes the following JSON fields: talkgroup, patched_talkgroups, freq, short_name, event (set to "call_end").  The length of the JSON metadata is prepended to the metadata in long integer format (4 bytes, little endian).
+| sendTGID  |          |     false     | **true** / **false** | Deprecated.  Recommend using sendJSON for metadata instead.  If sendJSON is set to true, this setting will be ignored.  When set to true, the TGID will be prepended in long integer format (4 bytes, little endian) to the audio data each time a packet is sent. |
+| shortName |          |               | string               | shortName of the System that audio should be streamed for.  This should match the shortName of a system that is defined in the main section of the config file.  When omitted, all Systems will be streamed to the address and port configured.  If TGIDs from Systems overlap, JSON metadata should be used to prevent interleaved audio for talkgroups from different Systems with the same TGID.
 |  useTCP   |          |     false     | **true** / **false** | When set to true, TCP will be used instead of UDP.
 
 ###### Plugin Object Example #1:
@@ -332,7 +381,7 @@ This example will stream audio from talkgroup 58914 on system "CountyTrunked" to
             "TGID":58914,
             "address":"127.0.0.1",
             "port":9123,
-            "sendTGID":false,
+            "sendJSON":false,
             "shortName":"CountyTrunked"}
         }
 ```
@@ -347,19 +396,19 @@ This example will stream audio from talkgroup 58914 from System CountyTrunked to
             "TGID":58914,
             "address":"127.0.0.1",
             "port":9123,
-            "sendTGID":false,
+            "sendJSON":false,
             "shortName":"CountyTrunked"},
            {"TGID":58916,
             "address":"127.0.0.1",
             "port":9124,
-            "sendTGID":false,
+            "sendJSON":false,
             "shortName":"StateTrunked"}
           ]}
         }
 ```
 
 ###### Plugin Object Example #3:
-This example will stream audio from talkgroups 58914 and 58916 from all Systems to the local machine on the same UDP port 9123.  It will prepend the TGID to the audio data in each UDP packet so that the receiving program can differentiate the two audio streams (the receiver may decide to only play one depending on priority, mix the two streams, play one left and one right, etc.)
+This example will stream audio from talkgroups 58914 and 58916 from all Systems to the local machine on the same UDP port 9123.  It will prepend the TGID and other JSON metadata to the audio data in each UDP packet so that the receiving program can differentiate the two audio streams (the receiver may decide to only play one depending on priority, mix the two streams, play one left and one right, etc.)
 ```yaml
         {
           "name":"simplestream",
@@ -368,16 +417,16 @@ This example will stream audio from talkgroups 58914 and 58916 from all Systems 
             "TGID":58914,
             "address":"127.0.0.1",
             "port":9123,
-            "sendTGID":true},
+            "sendJSON":true},
            {"TGID":58916,
             "address":"127.0.0.1",
             "port":9123,
-            "sendTGID":true}
+            "sendJSON":true}
           ]}
         }
 ```
 ###### Plugin Object Example #4:
-This example will stream audio from all talkgroups being recorded on System CountyTrunked to the local machine on UDP port 9123.  It will prepend the TGID to the audio data in each UDP packet so that the receiving program can decide which ones to play or otherwise handle)
+This example will stream audio from all talkgroups being recorded on System CountyTrunked to the local machine on UDP port 9123.  It will prepend the TGID and other JSON metadata to the audio data in each UDP packet so that the receiving program can decide which ones to play or otherwise handle)
 ```yaml
         {
           "name":"simplestream",
@@ -386,7 +435,7 @@ This example will stream audio from all talkgroups being recorded on System Coun
             "TGID":0,
             "address":"127.0.0.1",
             "port":9123,
-            "sendTGID":true,
+            "sendJSON":true,
             "shortName":"CountyTrunked"}
         }
 ```
@@ -406,11 +455,14 @@ The matching simplestream config to send audio from talkgroup 58918 to TCP port 
             "TGID":58918,
             "address":"127.0.0.1",
             "port":9125,
-            "sendTGID":false,
+            "sendJSON":false,
             "shortName":"CountyTrunked",
             "useTCP":true}
         }
 ```
+#### Example - Sending Audio to FFMPEG for compression
+Here's an FFMPEG command that takes PCM audio from simplestream via UDP, cleans it up, and outputs ogg/opus to stdout.  Note that this will only work if sendTGID and sendJSON are both set to false and only a single talkgroup is fed to ffmpeg over the UDP port, as ffmpeg cannot interpret any metadata.
+`ffmpeg -loglevel warning -f s16le -ar 16000 -ac 1 -i udp://localhost:9125 -af:a adeclick -f:a ogg -c:a libopus -frame_duration:a 20 -vbr:a on -b:a 48000 -application:a voip pipe:1`
 
 ## talkgroupsFile
 
@@ -434,7 +486,8 @@ The columns are:
 | Category |    |  The category for the Talkgroup |
 | Tag       |   |  The Service Tag for the Talkgroup |
 | Priority |    | The priority field specifies the number of recorders the system must have available to record a new call for the talkgroup. For example, a priority of 1, the highest means as long as at least a single recorder is available, the system will record the new call. If the priority is 2, the system would at least 2 free recorders to record the new call, and so on. If there is no priority set for a talkgroup entry, a prioity of 1 is assumed. <br/> Talkgroups assigned a priority of -1 will never be recorded, regardless of the number of available recorders. |
-| Preferred NAC |     | In Multi-Site mode, the preferred NAC for a specific talk group is used to specify the site you prefer the talk group to be recorded from.|
+| Preferred NAC |     | In Multi-Site mode, the preferred NAC (`nnnn`, e.g. `1234`), RFSS/SiteID (`RRRRssss`, e.g. `00010023`), or multiSiteSystemNumber to record a specific talkgroup.|
+| Conversation Mode |      | Allows for Conversation Mode to be set at the Talkgroup level. This is helpful if you have a busy dispatch channel and want to break it up. This value can be set on only few rows, the rest will default to the System level value. The allowed values are `true` and `false`. |
 | Comment |        | Use this field to capture comments about a talkgroup. It will be ignored by Trunk Recorder. |
 
 Here are the column headers and some sample data: 
@@ -447,29 +500,28 @@ Here are the column headers and some sample data:
 
 ## channelFile
 
-This file allows for you to specify additional information about conventional channels. A recorder is started for each line in the file and set the to frequency specified. The type of recorder is based on the type of System. A **Conventional** system would have Analog Recorders, while **ConventionalP25** or **ConventionalDMR** would have digital recorders.
-
-*Tone based squelch is currently not supported.*
-
+This file allows for you to specify additional information about conventional channels. A recorder is started for each line in the file and set the to frequency specified. The type of recorder is based on the type of System. A **conventional** system would have Analog Recorders, while **conventionalP25** or **conventionalDMR** would have digital recorders. **conventionalSIGMF** is a conventional system with SIGMF Recorders.
 
 | Column Name | Required | Value |
 |-------------|----------|-------|
 | TG Number     | ✔️        | The Talkgroup Number formatted as a decimal number. This has to be the first column |
-| Frequency        |  ✔️       | The frequency in Hz for the channel |
-| Tone | ✔️        | The Tone for the talkgroup. This value is not used. *Tone based squelch is currently not supported.* |
+| Frequency        |  ✔️       | The frequency in MHz or Hz for the channel (decimal point must be used for MHz) |
+| Tone |        | The CTCSS Tone for the talkgroup. |
 | Alpha Tag |       | A 16 character description that is intended as a shortened display on radio displays |
+| Description |   | A longer description of the talkgroup  |
 | Category |    |  The category for the Talkgroup |
 | Tag       |   |  The Service Tag for the Talkgroup |
 | Comment |        | Use this field to capture comments about a talkgroup. It will be ignored by Trunk Recorder. |
 | Enable |        | Set to 'false' if you do not want this talkgroup/channel to created |
+| Signal Detector |    | Set to `false` if you do not want to use the Signal Detector for this channel. The Signal Detector scans a source's bandwidth and only enables a channel if a signal over a threshold is detected. If it not used, the channel will always be enabled and the Squelch will be running which uses more CPU. Default is `true`|
+| Squelch |    | Value in dB to use for the Squelch for this channel. If this is not set then the System Squelch value will be used instead. |
 
+A **Header Row** is required for the file, with a header provided for each of the columns that will be used. The columns can be in any order. For the Optional columns, if they are left blank for some of the rows, the default value will be used instead.
 
-The **Enable** Column is optional and defaults to *True*. It only needs to be added to rows that you do not want to have recorded. For those rows, set **Enable** to *False*.
-
-| TG Number | Frequency | Tone     | Alpha Tag     | Description            | Tag    | Category  | Enable (*optional*) |
-| --------- | --------- | -------- | ------------- | ---------------------- | ------ | ------ | ------------------- |
-| 300       | 462275000 | 94.8  | Town A Police | Town A Police Dispatch | Police | Town A |                     |
-| 325       | 462275000 | 151.4 | Town B DPW    | Town B Trash Dispatch  | DPW    | Town B | False               |
+| TG Number | Frequency | Tone     | Alpha Tag     | Description            | Tag    | Category  | Enable | Signal Detector | Squelch |
+| --------- | --------- | -------- | ------------- | ---------------------- | ------ | ------ | ------------------- | ---- | ---- |
+| 300       | 462275000 | 94.8  | Town A Police | Town A Police Dispatch | Police | Town A |    |  false |  |
+| 325       | 462275000 | 151.4 | Town B DPW    | Town B Trash Dispatch  | DPW    | Town B | false   |  |  -50 |
 
 
 ## unitTagsFile
@@ -485,3 +537,28 @@ In the second row of the example below, the first capture group `([0-9]{2})` bec
 | 911000                   | Dispatch     |
 | 1[1245]10([0-9]{2})[127] | Engine $1    |
 | /^1[78]3(1[0-9]{2})/     | Ambulance $1 |
+
+## customFrequencyTableFile
+
+This file allows for you to specify custom P25 frequency table information.
+
+**It is highly recommended to only use this file when the system control channel is not accurately broadcasting frequency table information. In most cases, this file should not be needed.**
+
+| Column Name | Required | Value |
+|-------------|----------|-------|
+| TABLEID     | ✔️       | The frequency table ID. This ID uses One-Based numbering to match the RadioReference format. |
+| TYPE        | ✔️       | The type of frequency table. This should be either **TDMA** or **FDMA**. |
+| BASE        | ✔️       | The base frequency defined in MHz. (Example: 851.00625)|
+| SPACING     | ✔️       | The channel spacing defined in KHz. (Example 6.25)  |
+| OFFSET      | ✔️       | The transmit offset defined in MHz. (Example -45)  |
+
+A **Header Row** is required for the file and the headers must match the column names above. Column headers are case sensitive and must be provided in uppercase.
+
+**RadioReference Subscribers** please note that if you copy this information directly from RadioReference, you will need to update the column headers.
+
+| TABLEID | TYPE | BASE      | SPACING | OFFSET |
+|---------|------|-----------|---------|--------|
+| 1       | FDMA | 851.00625 | 6.25    | -45    |
+| 2       | FDMA | 762.00625 | 6.25    | +30    |
+| 3       | TDMA | 851.01250 | 12.5    | -45    |
+| 4       | TDMA | 762.00625 | 12.5    | +30    |
