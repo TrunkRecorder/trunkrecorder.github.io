@@ -44,13 +44,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Only needed for USRP/UHD-based SDRs — remove if using RTL-SDR or other drivers
 export UHD_IMAGES_DIR=/usr/share/uhd/images/
 
-exec ./trunk-recorder --config=config-<system>.json
+exec caffeinate -isu ./trunk-recorder --config=config-<system>.json
 ```
 
 Make the script executable:
 ```bash
 chmod +x start-<system>.sh
 ```
+
+The `caffeinate -isu` prefix keeps macOS from putting the machine — and the USB controller your SDR is attached to — to sleep. This is important: see [USB Power Management](#7-usb-power-management-uhdusrp) below. A ready-made copy of this script lives at `auto-restart-mac.sh` in this directory.
 
 > **Multiple configs or alternating sources:** If you need to run trunk-recorder against more than one config sequentially (e.g. alternating between SDR sources), replace `exec` with an `until` loop. `exec` is correct for the common single-config case.
 
@@ -73,6 +75,7 @@ Key fields:
 | `WorkingDirectory` | Absolute path to `trunk-build/` — recordings land here |
 | `RunAtLoad` | Start the job as soon as the plist is loaded (at login) |
 | `KeepAlive` | launchd automatically restarts the process when it exits |
+| `ProcessType` | Set to `Interactive` so macOS doesn't aggressively power-manage the job — see [USB Power Management](#7-usb-power-management-uhdusrp) |
 | `StandardOutPath` | Log file path for stdout |
 | `StandardErrorPath` | Set to the same path as `StandardOutPath` — trunk-recorder writes everything to stderr, so combining them keeps all output in one file |
 
@@ -181,7 +184,56 @@ sudo newsyslog -v
 
 ---
 
-## 7. Quick Reference
+## 7. USB Power Management (UHD/USRP)
+
+macOS aggressively power-manages USB when a process runs under launchd rather than in an interactive terminal. Left unchecked, macOS can **suspend the USB controller your SDR is attached to** while trunk-recorder is running. When that happens:
+
+- The SDR's data channel dies, but the process keeps running — typically pinned at high CPU, waiting for samples that never arrive.
+- **No error is logged and no recordings are produced.** The process does not detect the lost device and does not exit, so `KeepAlive` never restarts it.
+- The stuck process keeps its exclusive USB lock on the device, so even `uhd_find_devices` reports "No UHD Devices Found" until the process is killed.
+
+This has been observed on Apple Silicon with a USRP B200 after running for days under launchd. It does **not** happen when the same binary is run from a terminal — an interactive session keeps macOS from suspending the controller.
+
+RTL-SDR dongles are largely immune: their driver sets the IOKit `PowerOverrideOn` flag, which tells macOS not to idle-suspend them. The UHD/libusb stack does not set this flag, so **USRP/UHD sources are the most affected.**
+
+### Mitigations
+
+Two settings work together to keep the controller awake:
+
+1. **`caffeinate -isu` in the launcher script** (shown in [section 1](#1-launcher-script)). The flags prevent idle sleep (`-i`), system sleep (`-s`), and declare the system "user active" (`-u`) so macOS keeps the USB controllers powered:
+   ```bash
+   exec caffeinate -isu ./trunk-recorder --config=config-<system>.json
+   ```
+
+2. **`ProcessType` set to `Interactive` in the plist.** This tells macOS to treat the launchd agent like an interactive process, reducing timer coalescing, CPU throttling, and power management:
+   ```xml
+   <key>ProcessType</key>
+   <string>Interactive</string>
+   ```
+
+Both are already present in `auto-restart-mac.sh` and `example-launchagent.plist` in this directory. Keeping the machine on AC power (not battery) and disabling system sleep in **System Settings → Displays → Advanced / Energy** further reduces the risk.
+
+### Detecting a stuck instance
+
+If recordings stop appearing but the process is still running, check whether the USB controller has been suspended:
+
+```bash
+# Is the device still owned/visible? Empty output = trouble.
+uhd_find_devices
+
+# Which process holds the SDR, and is its controller suspended?
+ioreg -p IOUSB -l | grep -E "UsbExclusiveOwner|kPowerStateSuspended"
+```
+
+A controller showing nearly 100% time in `kPowerStateSuspended` confirms the issue. The fix is to restart the instance, which releases the USB lock:
+
+```bash
+launchctl stop local.trunk-recorder-<system>   # KeepAlive restarts it
+```
+
+---
+
+## 8. Quick Reference
 
 ```bash
 # Load (start) a job
